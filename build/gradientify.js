@@ -1,1 +1,1 @@
-console.log("Test");
+class Gradientify{constructor(){}create(e,r,a,n){var t=`linear-gradient(${r}, ${a.toString()})`;console.log(t),e.style.background=t}}var gradientify=new Gradientify;gradientify.create(document.body,"60deg",["red","black"],"linear");

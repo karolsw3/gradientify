@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var pug = require('gulp-pug');
 const debug = require('gulp-debug');
 var stylus = require('gulp-stylus');
-var uglify = require('gulp-uglify');
+var uglify = require('gulp-uglify-es').default;
 var pump = require('pump');
 
 gulp.task('html', function(){

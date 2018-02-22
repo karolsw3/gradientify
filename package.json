@@ -27,9 +27,11 @@
     "gulp-pug": "^3.3.0",
     "gulp-stylus": "^2.7.0",
     "gulp-uglify": "^3.0.0",
+    "gulp-uglify-es": "^1.0.1",
     "pug": "^2.0.0-rc.4",
     "pump": "^3.0.0",
-    "stylus": "^0.54.5"
+    "stylus": "^0.54.5",
+    "uglify-es": "^3.3.9"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
