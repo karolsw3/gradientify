@@ -1,0 +1,26 @@
+{
+  "name": "gradientify.js",
+  "version": "1.0.0",
+  "description": "Simple javascript library for creating beautyful gradient backgrounds.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karolsw2/gradientify.js.git"
+  },
+  "keywords": [
+    "gradientify",
+    "animated",
+    "gradients",
+    "gradients",
+    "js"
+  ],
+  "author": "Karol Świerczek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/karolsw2/gradientify.js/issues"
+  },
+  "homepage": "https://github.com/karolsw2/gradientify.js#readme"
+}
