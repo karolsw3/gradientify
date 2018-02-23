@@ -50,7 +50,7 @@ class Gradientify {
 
 		if(typeof this.background.gradients !== `object`) throw `${this.errorMessage} Invalid gradients`
 
-		this.background.gradients.map((gradient, i) => {
+		this.background.gradients.map(gradient => {
 
 			gradient.opacity = Math.round(gradient.opacity*255)
 			gradient.colors = gradient.colors.map(c => {
@@ -75,7 +75,6 @@ class Gradientify {
 					break
 				default:
 					throw `${this.errorMessage} Invalid gradient type "${gradient.type}"`
-					break
 			}
 
 		})
