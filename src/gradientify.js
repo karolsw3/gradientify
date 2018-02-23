@@ -1,10 +1,12 @@
 class Gradientify {
 
 	constructor(){
-		this.background = []
+		this.background = {}
+		this.output = []
 		this.errorMessage = `Gradientify:`
-		this.changeBackground = this.changeBackground.bind(this)
+		this.setBackground = this.setBackground.bind(this)
 		this.colorNameToHex = this.colorNameToHex.bind(this)
+		this.animate = this.animate.bind(this)
 	}
 	
 	colorNameToHex(color){
@@ -37,16 +39,21 @@ class Gradientify {
     return color
 	}
 
-	changeBackground(element, gradients, options) {
-		if(typeof gradients !== `object`){
-			throw `${this.errorMessage} Invalid gradients`
-			return
-		}
+	animate(input) {
+		//this.background.color.map((color)=>{
+		//	return color
+		//})
+	}
 
-		gradients.map((gradient, i) => {
+	setBackground(input) {
+		this.background = input
+
+		if(typeof this.background.gradients !== `object`) throw `${this.errorMessage} Invalid gradients`
+
+		this.background.gradients.map((gradient, i) => {
 
 			gradient.opacity = Math.round(gradient.opacity*255)
-			gradient.colors = gradient.colors.replace(/\s/g, '').split(`,`).map(c => {
+			gradient.colors = gradient.colors.map(c => {
 				c = this.colorNameToHex(c)
 				var hex = gradient.opacity.toString(16)
 				if(c.length === 7){
@@ -54,19 +61,17 @@ class Gradientify {
 				}else{
 					return c
 				}
-			}).join(`,`)
+			})
 
-			if(options.debug){ 
-				console.log(gradient.colors)
-			}
+			this.colors = gradient.colors
 
 			switch (gradient.type) {
 				case `linear`:
-					this.background.push(`linear-gradient(${gradient.angle}, ${gradient.colors})`)
+					this.output.push(`linear-gradient(${gradient.angle}, ${gradient.colors.toString()})`)
 					break
 				case `radial`:
 					if (gradient.shape === undefined) gradient.shape = `ellipse`
-					this.background.push(`radial-gradient(${gradient.shape}, ${gradient.colors})`)
+					this.output.push(`radial-gradient(${gradient.shape}, ${gradient.colors.toString()})`)
 					break
 				default:
 					throw `${this.errorMessage} Invalid gradient type "${gradient.type}"`
@@ -75,28 +80,7 @@ class Gradientify {
 
 		})
 
-		if(options.debug){ 
-			console.log(this.background.toString())
-		}
-
-		element.style.backgroundImage = this.background.toString()
+		if(this.background.options.debug) console.log(this.output.toString())
+		this.background.element.style.backgroundImage = this.output.toString()
 	}
 }
-
-/* Tests */
-
-var gradientify = new Gradientify()
-
-gradientify.changeBackground(document.body, [{
-	type: `linear`,
-	angle: `60deg`,
-	colors: `red, blue`,
-	opacity: .5
-},{
-	type: `radial`,
-	angle: `94deg`,
-	colors: `#1133ff, #22ffff`,
-	opacity: 1
-}], {
-	debug: true
-})

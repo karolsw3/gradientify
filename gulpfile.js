@@ -19,7 +19,7 @@ gulp.task('css', function(){
     .pipe(gulp.dest('build'))
 });
 
-gulp.task('compress', function (cb) {
+gulp.task('compress', function (cb){
   pump([
         gulp.src('src/*.js'),
         uglify(),
