@@ -6,12 +6,12 @@ class Gradientify {
 		this.mainGradientIndex = 0
 		this.animate = this.animate.bind(this)
 
-		input.gradients.map(gradient => {
+		input.gradients.map((gradient, gradientIndex) => {
 			let newElement = document.createElement("div")
 
 			Object.assign(newElement.style, {
-				backgroundImage: gradient.gradient,
-				opacity: gradient.opacity,
+				backgroundImage: gradient,
+				opacity: (gradientIndex === this.mainGradientIndex) ? 1:0,
 				width: `100%`,
 				height: `100%`,
 				position: `absolute`,
