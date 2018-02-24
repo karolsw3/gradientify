@@ -7,6 +7,7 @@ class Gradientify {
 		this.setBackground = this.setBackground.bind(this)
 		this.colorNameToHex = this.colorNameToHex.bind(this)
 		this.animate = this.animate.bind(this)
+		this.currentGradientIndex = 0
 	}
 	
 	colorNameToHex(color){
@@ -43,11 +44,19 @@ class Gradientify {
 		setTimeout(()=>{
 			setInterval(()=>{
 				this.background.gradients.map((gradient, gradientIndex) => {
-					gradient.colors.map((color, colorIndex) => {
-						var hex = (parseInt(color.replace(/#/, ``), 16)).toString(16)
-						while(hex.length < 8){ hex = `0`+hex }
-						this.background.gradients[gradientIndex].colors[colorIndex] = `#`+hex
-					})
+					if(gradientIndex === this.currentGradientIndex){
+						if(gradient.opacity < .9){
+							this.background.gradients[gradientIndex].opacity += .01
+						}else{
+							this.currentGradientIndex = (++this.currentGradientIndex % this.background.gradients.length)
+						}
+					}else{
+						if(gradient.opacity > .01){
+							this.background.gradients[gradientIndex].opacity -= .01
+						}else{
+							this.currentGradientIndex = (++this.currentGradientIndex % this.background.gradients.length)
+						}
+					}
 				})
 				this.setBackground(this.background)
 			}, input.interval)
@@ -61,16 +70,12 @@ class Gradientify {
 		if(typeof this.background.gradients !== `object`) throw `${this.errorMessage} Invalid gradients`
 
 		this.background.gradients.map(gradient => {
-
-			gradient.opacity = Math.round(gradient.opacity*255)
+			var opacity = Math.round(gradient.opacity*255)
 			gradient.colors = gradient.colors.map(c => {
 				c = this.colorNameToHex(c)
-				var hex = gradient.opacity.toString(16)
-				if(c.length === 7) return c+(hex.length === 1 ? "0" + hex : hex)
-				return c
+				var hex = opacity.toString(16)
+				return c.slice(0, 7)+(hex.length === 1 ? "0" + hex : hex)
 			})
-
-			this.colors = gradient.colors
 
 			switch (gradient.type) {
 				case `linear`:
