@@ -4,7 +4,6 @@ class Gradientify {
 		this.gradients = []
 		this.mainElement = document.body
 		this.mainGradientIndex = 0
-		this.errorMessage = `Gradientify:`
 
 		this.setBackground = this.setBackground.bind(this)
 		this.animate = this.animate.bind(this)
@@ -41,6 +40,7 @@ class Gradientify {
 			newElement.style.transitionTimingFunction = `linear`
 			newElement.style.top = `0`
 			newElement.style.left = `0`
+			newElement.style.zIndex = `-999`
 
 			this.gradients.push(newElement)
 			this.mainElement.append(newElement)
