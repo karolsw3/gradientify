@@ -1,9 +1,9 @@
 class Gradientify {
 
 	constructor(){
-		this.backgrounds = []
+		this.gradients = []
 		this.mainElement = document.body
-		this.currentGradientIndex = 0
+		this.mainGradientIndex = 0
 		this.errorMessage = `Gradientify:`
 
 		this.setBackground = this.setBackground.bind(this)
@@ -11,11 +11,19 @@ class Gradientify {
 	}
 
 	animate(input) {
-		setTimeout(()=>{
-			setInterval(()=>{
 
-			}, input.interval)
-		}, input.delay)
+		this.gradients.map(gradient => {
+			gradient.style.transitionDuration = `${input.interval/1000}s`
+		})
+
+		setInterval(()=>{
+			this.gradients.map((gradient, gradientIndex) => {
+				if(gradientIndex === this.mainGradientIndex) gradient.style.opacity = 1
+				else gradient.style.opacity = 0
+			})
+			this.mainGradientIndex = (++this.mainGradientIndex % this.gradients.length)
+		}, input.interval+input.delay+50)
+
 	}
 
 	setBackground(input) {
@@ -30,10 +38,11 @@ class Gradientify {
 			newElement.style.width = `100%`
 			newElement.style.height = `100%`
 			newElement.style.position = `absolute`
+			newElement.style.transitionTimingFunction = `linear`
 			newElement.style.top = `0`
 			newElement.style.left = `0`
 
-			this.backgrounds.push(newElement)
+			this.gradients.push(newElement)
 			this.mainElement.append(newElement)
 
 		})
