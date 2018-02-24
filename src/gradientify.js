@@ -1,12 +1,32 @@
 class Gradientify {
 
-	constructor(){
+	constructor(input){
 		this.gradients = []
-		this.mainElement = document.body
+		this.mainElement = input.element
 		this.mainGradientIndex = 0
 
-		this.setBackground = this.setBackground.bind(this)
 		this.animate = this.animate.bind(this)
+
+		input.gradients.map(gradient => {
+
+			let newElement = document.createElement("div")
+
+			Object.assign(newElement.style, {
+				backgroundImage: gradient.gradient,
+				opacity: gradient.opacity,
+				width: `100%`,
+				height: `100%`,
+				position: `absolute`,
+				transitionTimingFunction: `linear`,
+				top: `0`,
+				left: `0`,
+				zIndex: `-999`
+			})
+
+			this.gradients.push(newElement)
+			this.mainElement.append(newElement)
+
+		})
 	}
 
 	animate(input) {
@@ -25,26 +45,4 @@ class Gradientify {
 
 	}
 
-	setBackground(input) {
-
-		this.mainElement = input.element
-
-		input.gradients.map(gradient => {
-			let newElement = document.createElement("div")
-
-			newElement.style.backgroundImage = gradient.gradient
-			newElement.style.opacity = gradient.opacity
-			newElement.style.width = `100%`
-			newElement.style.height = `100%`
-			newElement.style.position = `absolute`
-			newElement.style.transitionTimingFunction = `linear`
-			newElement.style.top = `0`
-			newElement.style.left = `0`
-			newElement.style.zIndex = `-999`
-
-			this.gradients.push(newElement)
-			this.mainElement.append(newElement)
-
-		})
-	}
 }

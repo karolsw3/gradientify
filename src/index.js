@@ -1,7 +1,5 @@
 
-var gradientify = new Gradientify()
-
-gradientify.setBackground({
+var gradientify = new Gradientify({
 	element: document.body,
 	gradients: [
 		{gradient: `linear-gradient(60deg, rgba(255, 0, 0), rgba(0, 0, 255))`, opacity: 1},
