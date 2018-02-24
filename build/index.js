@@ -1,1 +1,1 @@
-var gradientify=new Gradientify;gradientify.setBackground({element:document.body,gradients:[{type:"linear",angle:"60deg",colors:["red","blue"],opacity:1},{type:"radial",colors:["#1133ff","#22ffff"],opacity:0}],options:{debug:!1}}),gradientify.animate({delay:100,interval:20});
+var gradientify=new Gradientify;gradientify.setBackground({element:document.body,gradients:[{gradient:"linear-gradient(60deg, rgba(255, 0, 0), rgba(0, 0, 255))",opacity:1}]}),gradientify.animate({delay:100,interval:400});
