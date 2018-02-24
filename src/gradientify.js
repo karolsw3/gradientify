@@ -40,13 +40,23 @@ class Gradientify {
 	}
 
 	animate(input) {
-		//this.background.color.map((color)=>{
-		//	return color
-		//})
+		setTimeout(()=>{
+			setInterval(()=>{
+				this.background.gradients.map((gradient, gradientIndex) => {
+					gradient.colors.map((color, colorIndex) => {
+						var hex = (parseInt(color.replace(/#/, ``), 16)).toString(16)
+						while(hex.length < 8){ hex = `0`+hex }
+						this.background.gradients[gradientIndex].colors[colorIndex] = `#`+hex
+					})
+				})
+				this.setBackground(this.background)
+			}, input.interval)
+		}, input.delay)
 	}
 
 	setBackground(input) {
-		this.background = input
+		this.output = []
+		this.background = input 
 
 		if(typeof this.background.gradients !== `object`) throw `${this.errorMessage} Invalid gradients`
 
@@ -56,11 +66,8 @@ class Gradientify {
 			gradient.colors = gradient.colors.map(c => {
 				c = this.colorNameToHex(c)
 				var hex = gradient.opacity.toString(16)
-				if(c.length === 7){
-					return c+(hex.length === 1 ? "0" + hex : hex)
-				}else{
-					return c
-				}
+				if(c.length === 7) return c+(hex.length === 1 ? "0" + hex : hex)
+				return c
 			})
 
 			this.colors = gradient.colors
