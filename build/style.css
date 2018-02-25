@@ -41,10 +41,17 @@ body {
   color: #1f1f1f;
 }
 .menu__button--logo:hover {
-  background: initial;
-  color: initial;
-  opacity: 0.8;
+  background: inherit;
+  color: inherit;
+  opacity: 0.6;
 }
-.menu__button--primary {
+.headline {
+  display: block;
+  position: absolute;
+  top: 90px;
+  left: 60px;
+  width: 65vw;
   font-weight: 900;
+  font-size: 5em;
+  color: #fff;
 }
