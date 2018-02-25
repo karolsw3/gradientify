@@ -5,7 +5,12 @@ class Gradientify {
 		this.mainElement = input.element
 		this.mainGradientIndex = 0
 		this.animate = this.animate.bind(this)
+		this.init = this.init.bind(this)
 
+		this.init(input)
+	}
+
+	init(input){
 		input.gradients.map((gradient, gradientIndex) => {
 			let newElement = document.createElement("div")
 
