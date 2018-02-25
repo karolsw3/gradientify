@@ -8,12 +8,13 @@ body {
 }
 .menu {
   width: 100%;
-  height: 60px;
+  height: 70px;
+  padding: 10px;
   position: fixed;
   top: 0 !important;
   background: transparent;
   color: #fff;
-  border-bottom: 1px solid #fff;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -38,12 +39,15 @@ body {
 }
 .menu__button:hover {
   background: #fff;
-  color: #1f1f1f;
+  color: #333;
+  opacity: 0.9;
 }
-.menu__button--logo:hover {
-  background: inherit;
-  color: inherit;
-  opacity: 0.6;
+.header {
+  width: 100vw;
+  height: 100%;
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
 }
 .headline {
   display: block;

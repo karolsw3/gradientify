@@ -1,6 +1,6 @@
 
 new Gradientify({
-	element: document.body,
+	element: document.getElementById(`header`),
 	gradients: [
 		`linear-gradient(60deg, rgba(255, 0, 0), rgba(0, 0, 255))`,
 		`linear-gradient(10deg, rgba(25, 123, 23), rgba(255, 0, 155))`,

@@ -36,7 +36,7 @@ class Gradientify {
 
 		setInterval(()=>{
 			this.animate()
-		}, input.interval+input.delay+50)
+		}, input.interval+input.delay+40)
 	}
 
 	animate(){

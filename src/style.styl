@@ -6,12 +6,13 @@ html, body
 	font-family 'Montserrat'
 .menu
 	width 100%
-	height 60px
+	height 70px
+	padding 10px
 	position fixed
 	top 0 !important
 	background transparent
 	color white
-	border-bottom 1px solid white
+	box-sizing border-box
 	display flex
 	align-items center
 	justify-content space-between
@@ -33,12 +34,14 @@ html, body
 		transition-duration .1s
 		&:hover
 			background white
-			color #1f1f1f
-		&--logo
-			&:hover
-				background inherit
-				color inherit
-				opacity .6
+			color #333
+			opacity .9
+.header
+	width 100vw
+	height 100%
+	margin 0
+	padding 10px
+	box-sizing border-box
 .headline
 	display block
 	position absolute
