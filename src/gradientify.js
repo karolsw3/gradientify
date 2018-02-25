@@ -22,6 +22,7 @@ class Gradientify {
 				position: `absolute`,
 				transitionTimingFunction: `linear`,
 				transitionDuration: `${input.interval/1000}s`,
+				position: input.fixed ? `fixed`:`initial`,
 				top: `0`,
 				left: `0`,
 				zIndex: `-999`
