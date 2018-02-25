@@ -14,15 +14,16 @@ class Gradientify {
 		input.gradients.map((gradient, gradientIndex) => {
 			let newElement = document.createElement("div")
 
+			if(input.fixed) this.mainElement.style.overflow = `hidden`
+
 			Object.assign(newElement.style, {
 				backgroundImage: gradient,
 				opacity: (gradientIndex === this.mainGradientIndex) ? 1:0,
 				width: `100%`,
 				height: `100%`,
-				position: `absolute`,
 				transitionTimingFunction: `linear`,
 				transitionDuration: `${input.interval/1000}s`,
-				position: input.fixed ? `fixed`:`initial`,
+				position: input.fixed ? `fixed`:`absolute`,
 				top: `0`,
 				left: `0`,
 				zIndex: `-999`

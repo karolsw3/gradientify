@@ -7,7 +7,7 @@ new Gradientify({
 		`radial-gradient(rgba(25, 123, 223), rgba(5, 133, 5))`,
 		`linear-gradient(130deg, rgba(25, 23, 223), rgba(25, 89, 5), rgba(15, 189, 176))`,
 	],
-	fixed: true,
+	fixed: false,
 	delay: 0,
 	interval: 1300
 })
