@@ -1,5 +1,6 @@
 # gradientify.js
-Small javascript library for creating beautyful, animated gradients.
+
+![](https://image.ibb.co/fT8O3H/Screenshot_137.png)
 
 ## Getting Started
 
