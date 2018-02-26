@@ -6,6 +6,11 @@ body {
   height: 100vh;
   font-family: 'Montserrat';
 }
+html a,
+body a {
+  text-decoration: none;
+  color: inherit;
+}
 .menu {
   width: 100%;
   height: 70px;
