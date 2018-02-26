@@ -34,18 +34,16 @@ class Gradientify {
 
   createGradient (gradientConfig) {
     let newElement = document.createElement('div')
+
     Object.assign(newElement.style, {
       backgroundImage: gradientConfig.backgroundImage,
       opacity: (gradientConfig.index === this.mainGradientIndex) ? 1 : 0,
-      width: `100%`,
-      height: `100%`,
-      transitionTimingFunction: `linear`,
       transitionDuration: `${gradientConfig.transitionDuration / 1000}s`,
-      position: gradientConfig.fixed ? `fixed` : `absolute`,
-      top: `0`,
-      left: `0`,
-      zIndex: `-999`
+      position: gradientConfig.fixed ? `fixed` : `absolute`
     })
+
+    newElement.classList.add(`gradientify-gradient`)
+
     return newElement
   }
 
