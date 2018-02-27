@@ -5,7 +5,7 @@ class Gradientify {
     this.mainGradientIndex = 0
 
     this.init = this.init.bind(this)
-    this.createGradient = this.createGradient.bind(this)
+    this.createGradientElement = this.createGradientElement.bind(this)
     this.initialiseInterval = this.initialiseInterval.bind(this)
     this.makeNewGradientVisible = this.makeNewGradientVisible.bind(this)
 
@@ -14,7 +14,7 @@ class Gradientify {
 
   init (input) {
     input.gradients.map((gradient, gradientIndex) => {
-      let newGradient = this.createGradient({
+      let newGradient = this.createGradientElement({
         backgroundImage: gradient,
         index: gradientIndex,
         position: input.fixed,
@@ -32,7 +32,7 @@ class Gradientify {
     })
   }
 
-  createGradient (gradientConfig) {
+  createGradientElement (gradientConfig) {
     let newElement = document.createElement('div')
 
     Object.assign(newElement.style, {
