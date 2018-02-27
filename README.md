@@ -4,6 +4,8 @@
 
 ## Getting Started
 
+Live demo: https://karolsw2.github.io/gradientify.github.io/
+
 Basic initalisation:
 
 ```javascript
