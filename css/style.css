@@ -33,6 +33,7 @@ body a {
 .menu__button {
   height: 100%;
   min-width: 120px;
+  margin-left: 15px;
   cursor: pointer;
   padding: 10px 20px;
   box-sizing: border-box;
