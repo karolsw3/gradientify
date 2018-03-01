@@ -130,3 +130,8 @@ body a {
     display: none;
   }
 }
+@media screen and (max-width: 670px) {
+  .headline {
+    font-size: 2.5em;
+  }
+}
