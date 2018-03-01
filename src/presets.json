@@ -1,0 +1,11 @@
+{
+  "f4ErRv":{
+    "name": "Main theme",
+    "author": "karolsw2",
+    "gradients": [ 
+      "linear-gradient(60deg, rgb(255, 0, 0), rgb(0, 0, 255))",
+      "linear-gradient(10deg, rgb(25, 123, 23), #ff22af)",
+      "radial-gradient(rgb(25, 123, 223), red)"
+    ] 
+  }
+}

@@ -8,6 +8,7 @@ class Gradientify {
     this.createGradientElement = this.createGradientElement.bind(this)
     this.initialiseInterval = this.initialiseInterval.bind(this)
     this.makeNewGradientVisible = this.makeNewGradientVisible.bind(this)
+    this.loadJSON = this.loadJSON.bind(this)
 
     this.init(input)
   }
@@ -45,6 +46,24 @@ class Gradientify {
     newElement.classList.add(`gradientify-gradient`)
 
     return newElement
+  }
+
+  getPreset (presetHash) {
+    this.loadJSON((data) => {
+      this.gradients = data[presetHash].gradients
+    })
+  }
+
+  loadJSON (callback) {
+    var xobj = new XMLHttpRequest()
+    xobj.overrideMimeType('application/json')
+    xobj.open('GET', './src/presets.json', true)
+    xobj.onreadystatechange = function () {
+      if (xobj.readyState === 4 && xobj.status === 200) {
+        callback(xobj.responseText)
+      }
+    }
+    xobj.send(null)
   }
 
   initialiseInterval (intervalConfig) {
