@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,900')
 html, body
 	margin 0
-	width 100vw
 	height 100vh
 	font-family 'Montserrat'
 	a
@@ -58,14 +57,13 @@ html, body
 				opacity 1
 				top 125%
 .header
-	width 100vw
-	height 100%
 	margin 0
 	padding 10px
 	box-sizing border-box
 .headline
 	display block
 	position absolute
+	box-sizing border-box
 	top 90px
 	left 60px
 	width 65vw
@@ -87,4 +85,28 @@ html, body
 	transition opacity,height,top .27s
 	transition-timing-function cubic-bezier(0,0,0,1.48)
 	overflow hidden
+	z-index 999
+@media screen and (max-width: 830px)
+	.menu
+		flex-direction column
+		display block
+		position unset
+		height auto
+		&__slot
+			display block
+			height auto
+		&__button
+			height auto
+			margin 10px 0
+			font-size 1.3em
+	.headline
+		display block
+		position unset
+		text-align center
+		width 100%
+		height auto
+		margin-top 30px
+	.tooltip
+		display none
+  
 
