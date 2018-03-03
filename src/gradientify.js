@@ -12,7 +12,11 @@ class Gradientify {
     this.makeNewGradientVisible = this.makeNewGradientVisible.bind(this)
     this.loadJSON = this.loadJSON.bind(this)
 
-    this.init()
+    if (typeof input.gradients === 'string') {
+      this.getPreset(input.gradients)
+    } else {
+      this.init()
+    }
   }
 
   init () {
@@ -55,7 +59,6 @@ class Gradientify {
   getPreset (presetHash) {
     this.loadJSON((data) => {
       this.input.gradients = data[presetHash].gradients
-      console.log(data[presetHash].gradients)
       this.init()
     })
   }
