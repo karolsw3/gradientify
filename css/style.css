@@ -102,6 +102,44 @@ body a {
   overflow: hidden;
   z-index: 999;
 }
+.presets {
+  display: grid;
+  grid-template: 1fr/1fr 1fr;
+  background: #333;
+  grid-gap: 5px;
+  width: 100%;
+}
+.preset {
+  background: #111;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.preset__title {
+  width: 100%;
+  font-weight: 900;
+  font-size: 1.3em;
+  display: block;
+  cursor: pointer;
+  color: #fff;
+}
+.preset__title:after {
+  content: '';
+  display: block;
+  width: 90px;
+}
+.preset__gradient {
+  width: 100%;
+  height: 300px;
+  margin: 10px auto;
+  display: block;
+  border: 4px solid #fff;
+  background: linear-gradient(#45ff32, #f45);
+  box-sizing: border-box;
+}
+.preset__credits {
+  color: #ccf;
+  display: block;
+}
 @media screen and (max-width: 830px) {
   .menu {
     flex-direction: column;

@@ -57,10 +57,12 @@ html, body
 				height 14px
 				opacity 1
 				top 125%
+
 .header
 	margin 0
 	padding 10px
 	box-sizing border-box
+
 .headline
 	display block
 	position absolute
@@ -71,6 +73,7 @@ html, body
 	font-weight 900
 	font-size 5.5em
 	color white
+
 .tooltip
 	opacity 0
 	position absolute
@@ -87,6 +90,41 @@ html, body
 	transition-timing-function cubic-bezier(0,0,0,1.48)
 	overflow hidden
 	z-index 999
+
+.presets
+	display grid
+	grid-template 1fr / 1fr 1fr
+	background #333
+	grid-gap 5px
+	width 100%
+
+.preset
+	background #111
+	padding 10px
+	box-sizing border-box
+	&__title
+		width 100%
+		font-weight 900
+		font-size 1.3em
+		display block
+		cursor pointer
+		color white
+		&:after
+			content ''
+			display block
+			width 90px
+	&__gradient
+		width 100%
+		height 300px
+		margin 10px auto
+		display block
+		border 4px solid white
+		background linear-gradient(#45ff32, #ff4455)
+		box-sizing border-box
+	&__credits
+		color #ccccff
+		display block
+		
 @media screen and (max-width: 830px)
 	.menu
 		flex-direction column
