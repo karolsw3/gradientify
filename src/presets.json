@@ -1,0 +1,11 @@
+{
+  "f4a4dF":{
+    "name": "Main theme",
+    "author": "karolsw2",
+    "gradients": [ 
+      "linear-gradient(60deg, rgb(0, 0, 0), rgb(0, 0, 0))",
+      "linear-gradient(10deg, rgb(25, 23, 23), black)",
+      "radial-gradient(rgb(5, 12, 23), black)"
+    ] 
+  }
+}
