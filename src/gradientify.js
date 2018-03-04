@@ -8,6 +8,7 @@ var gradientify = (function () {
   var mainGradientIndex = 0
 
   gradientify.init = function (input) {
+    mainElement = input.element
     gradients = input.gradients
 
     appendGradientsOnMainElement({
@@ -18,6 +19,23 @@ var gradientify = (function () {
     initialiseInterval({
       interval: input.interval,
       delay: input.delay
+    })
+  }
+
+  gradientify.loadPreset = function (preset) {
+    mainElement = preset.element
+
+    loadJSON((data) => {
+      gradients = data[preset.hash].gradients
+      appendGradientsOnMainElement({
+        interval: data[preset.hash].interval
+      })
+
+      clearInterval(interval)
+      initialiseInterval({
+        interval: data[preset.hash].interval,
+        delay: data[preset.hash].delay
+      })
     })
   }
 
@@ -41,18 +59,12 @@ var gradientify = (function () {
     Object.assign(newElement.style, {
       backgroundImage: config.backgroundImage,
       opacity: (config.index === mainGradientIndex) ? 1 : 0,
-      transitionDuration: `${config.transitionDuration / 1000}s`,
+      transitionDuration: `${config.transitionDuration / 1000}s`
     })
 
     newElement.classList.add(`gradientify-gradient`)
 
     return newElement
-  }
-
-  function getPreset (presetHash) {
-    loadJSON((data) => {
-      gradients = data[presetHash].gradients
-    })
   }
 
   function loadJSON (callback) {
