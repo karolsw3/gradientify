@@ -1,54 +1,62 @@
-class Gradientify {
-  constructor (input) {
-    this.input = input
-    this.interval = null
-    this.gradients = []
-    this.mainElement = input.element
-    this.mainGradientIndex = 0
+var gradientify = (function () {
+  var gradientify = {}
 
-    this.init = this.init.bind(this)
-    this.createGradientElement = this.createGradientElement.bind(this)
-    this.initialiseInterval = this.initialiseInterval.bind(this)
-    this.makeNewGradientVisible = this.makeNewGradientVisible.bind(this)
-    this.loadJSON = this.loadJSON.bind(this)
+  var interval = 3000
+  var gradients = []
+  var gradientElements = []
+  var mainElement = document.body
+  var mainGradientIndex = 0
 
-    if (typeof input.gradients === 'string') {
-      this.getPreset(input.gradients)
-    } else {
-      this.init()
-    }
+  gradientify.init = function (input) {
+    mainElement = input.element
+    gradients = input.gradients
+
+    appendGradientsOnMainElement({
+      interval: input.interval
+    })
+
+    clearInterval(interval)
+    initialiseInterval({
+      interval: input.interval
+    })
   }
 
-  init () {
-    this.gradients = []
-    this.input.gradients.map((gradient, gradientIndex) => {
-      let newGradient = this.createGradientElement({
+  gradientify.loadPreset = function (preset) {
+    mainElement = preset.element
+
+    loadJSON((data) => {
+      gradients = data[preset.hash].gradients
+      appendGradientsOnMainElement({
+        interval: data[preset.hash].interval
+      })
+
+      clearInterval(interval)
+      initialiseInterval({
+        interval: data[preset.hash].interval
+      })
+    })
+  }
+
+  function appendGradientsOnMainElement (input) {
+    gradients.map((gradient, gradientIndex) => {
+      let newGradient = createGradientElement({
         backgroundImage: gradient,
         index: gradientIndex,
-        position: this.input.fixed,
-        transitionDuration: this.input.interval
+        transitionDuration: input.interval
       })
-      if (this.input.fixed) this.mainElement.style.overflow = `hidden`
 
-      this.gradients.push(newGradient)
-      this.mainElement.append(newGradient)
-    })
-
-    clearInterval(this.interval)
-    this.initialiseInterval({
-      interval: this.input.interval,
-      delay: this.input.delay
+      gradientElements.push(newGradient)
+      mainElement.append(newGradient)
     })
   }
 
-  createGradientElement (gradientConfig) {
+  function createGradientElement (config) {
     let newElement = document.createElement('div')
 
     Object.assign(newElement.style, {
-      backgroundImage: gradientConfig.backgroundImage,
-      opacity: (gradientConfig.index === this.mainGradientIndex) ? 1 : 0,
-      transitionDuration: `${gradientConfig.transitionDuration / 1000}s`,
-      position: gradientConfig.fixed ? `fixed` : `absolute`
+      backgroundImage: config.backgroundImage,
+      opacity: (config.index === mainGradientIndex) ? 1 : 0,
+      transitionDuration: `${config.transitionDuration / 1000}s`
     })
 
     newElement.classList.add(`gradientify-gradient`)
@@ -56,14 +64,7 @@ class Gradientify {
     return newElement
   }
 
-  getPreset (presetHash) {
-    this.loadJSON((data) => {
-      this.input.gradients = data[presetHash].gradients
-      this.init()
-    })
-  }
-
-  loadJSON (callback) {
+  function loadJSON (callback) {
     var xobj = new XMLHttpRequest()
     xobj.overrideMimeType('application/json')
     xobj.open('GET', './src/presets.json', true)
@@ -75,18 +76,20 @@ class Gradientify {
     xobj.send(null)
   }
 
-  initialiseInterval (intervalConfig) {
-    this.makeNewGradientVisible()
-    this.interval = setInterval(() => {
-      this.makeNewGradientVisible()
-    }, intervalConfig.interval + intervalConfig.delay + 40)
+  function initialiseInterval (config) {
+    makeNewGradientVisible()
+    interval = setInterval(() => {
+      makeNewGradientVisible()
+    }, config.interval + 40)
   }
 
-  makeNewGradientVisible () {
-    this.gradients.map((gradient, gradientIndex) => {
-      if (gradientIndex === this.mainGradientIndex) gradient.style.opacity = 1
+  function makeNewGradientVisible () {
+    gradientElements.map((gradient, gradientIndex) => {
+      if (gradientIndex === mainGradientIndex) gradient.style.opacity = 1
       else gradient.style.opacity = 0
     })
-    this.mainGradientIndex = (++this.mainGradientIndex % this.gradients.length)
+    mainGradientIndex = (++mainGradientIndex % gradientElements.length)
   }
-}
+
+  return gradientify
+})()
