@@ -4,6 +4,7 @@ body {
   margin: 0;
   width: 100%;
   min-height: 100%;
+  position: relative;
   font-family: 'Montserrat';
 }
 html a,
@@ -74,9 +75,9 @@ body a {
   margin: 0;
   padding: 42px;
   box-sizing: border-box;
-  height: 100vh;
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
 }
 .header:after {
   height: 230px;
@@ -173,20 +174,28 @@ body a {
     margin: 10px 0;
     font-size: 1.3em;
   }
+  .header {
+    padding: 25px;
+  }
   .headline {
-    display: block;
-    position: unset;
-    text-align: center;
     width: 100%;
-    height: auto;
-    margin-top: 30px;
+    margin: 0 auto;
+    max-width: 100%;
   }
   .tooltip {
     display: none;
   }
 }
 @media screen and (max-width: 670px) {
+  .header {
+    padding: 0;
+    min-height: 75vh;
+  }
   .headline {
-    font-size: 2.5em;
+    font-size: 3.5em;
+    text-align: center;
+  }
+  .presets {
+    grid-template: 1fr/1fr;
   }
 }
