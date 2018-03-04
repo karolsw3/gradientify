@@ -76,11 +76,11 @@ var gradientify = (function () {
     xobj.send(null)
   }
 
-  function initialiseInterval (intervalConfig) {
+  function initialiseInterval (config) {
     makeNewGradientVisible()
     interval = setInterval(() => {
       makeNewGradientVisible()
-    }, intervalConfig.interval + 40)
+    }, config.interval + 40)
   }
 
   function makeNewGradientVisible () {
