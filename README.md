@@ -6,7 +6,7 @@
 
 Live demo: https://karolsw2.github.io/gradientify.github.io/
 
-Basic initalisation:
+Basic initialisation:
 
 ```javascript
 gradientify.init({
@@ -20,7 +20,7 @@ gradientify.init({
 })
 ```
 
-You can also load ready-made preset:
+You can also load ready-made presets:
 
 ```javascript
 gradientify.loadPreset({element: document.body, hash: `f4a4dF`}) // Just look how it is simple!
