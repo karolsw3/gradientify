@@ -25,6 +25,7 @@ html, body
 	display flex
 	align-items center
 	justify-content space-between
+	z-index 999
 	&__slot
 		height 100%
 		display flex
@@ -60,16 +61,31 @@ html, body
 
 .header
 	margin 0
-	padding 10px
+	padding 42px
 	box-sizing border-box
+	height 100vh
+	position relative
+	overflow hidden
+	&:after
+		height 230px
+		width 200%
+		position absolute
+		bottom -38px
+		left -50px
+		box-sizing border-box
+		margin 0
+		padding-right 168px
+		content ''
+		background white
+		transform rotate(-7deg)
 
 .headline
 	display block
-	position absolute
 	box-sizing border-box
 	top 90px
 	left 60px
 	width 65vw
+	max-width 525px
 	font-weight 900
 	font-size 5.5em
 	color white
@@ -94,10 +110,11 @@ html, body
 .presets
 	display grid
 	grid-template 1fr / 1fr 1fr
-	background #333
+	background white
 	grid-gap 5px
 	width 100%
-
+	padding 10px
+	box-sizing border-box
 .preset
 	background #111
 	padding 10px
@@ -107,7 +124,6 @@ html, body
 		font-weight 900
 		font-size 1.3em
 		display block
-		cursor pointer
 		color white
 		&:after
 			content ''
@@ -119,7 +135,6 @@ html, body
 		margin 10px auto
 		display block
 		border 4px solid white
-		background linear-gradient(#45ff32, #ff4455)
 		box-sizing border-box
 	&__credits
 		color #ccccff
@@ -139,12 +154,7 @@ html, body
 			margin 10px 0
 			font-size 1.3em
 	.headline
-		display block
-		position unset
-		text-align center
 		width 100%
-		height auto
-		margin-top 30px
 	.tooltip
 		display none
 @media screen and (max-width: 670px)

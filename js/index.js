@@ -8,3 +8,11 @@ var g = new Gradientify({
   delay: 0,
   interval: 2600
 })
+
+var a = new Gradientify({
+  element: document.getElementById('f4a4dF'),
+  gradients: 'f4a4dF',
+  fixed: !1,
+  delay: 0,
+  interval: 2600
+})
