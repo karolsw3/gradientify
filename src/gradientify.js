@@ -17,8 +17,7 @@ var gradientify = (function () {
 
     clearInterval(interval)
     initialiseInterval({
-      interval: input.interval,
-      delay: input.delay
+      interval: input.interval
     })
   }
 
@@ -33,8 +32,7 @@ var gradientify = (function () {
 
       clearInterval(interval)
       initialiseInterval({
-        interval: data[preset.hash].interval,
-        delay: data[preset.hash].delay
+        interval: data[preset.hash].interval
       })
     })
   }
@@ -46,7 +44,6 @@ var gradientify = (function () {
         index: gradientIndex,
         transitionDuration: input.interval
       })
-      if (input.fixed) mainElement.style.overflow = `hidden`
 
       gradientElements.push(newGradient)
       mainElement.append(newGradient)
@@ -83,7 +80,7 @@ var gradientify = (function () {
     makeNewGradientVisible()
     interval = setInterval(() => {
       makeNewGradientVisible()
-    }, intervalConfig.interval + intervalConfig.delay + 40)
+    }, intervalConfig.interval + 40)
   }
 
   function makeNewGradientVisible () {
