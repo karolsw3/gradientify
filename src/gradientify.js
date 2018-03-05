@@ -64,7 +64,7 @@ var gradientify = (function () {
     return newElement
   }
 
-  function loadPresets (callback) {
+  function loadPresetsJSON (callback) {
     var xobj = new XMLHttpRequest()
     xobj.overrideMimeType('application/json')
     xobj.open('GET', './src/presets.json', true)
