@@ -25,16 +25,15 @@ var gradientify = (function () {
 
   gradientify.loadPreset = function (preset) {
     mainElement = preset.element
-    loadPresets(() => {
-      gradients = gradientify.presets[preset.hash].gradients
-      appendGradientsOnMainElement({
-        interval: gradientify.presets[preset.hash].interval
-      })
 
-      clearInterval(interval)
-      initialiseInterval({
-        interval: gradientify.presets[preset.hash].interval
-      })
+    gradients = gradientify.presets[preset.hash].gradients
+    appendGradientsOnMainElement({
+      interval: gradientify.presets[preset.hash].interval
+    })
+
+    clearInterval(interval)
+    initialiseInterval({
+      interval: gradientify.presets[preset.hash].interval
     })
   }
 
