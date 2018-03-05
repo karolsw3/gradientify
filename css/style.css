@@ -24,7 +24,6 @@ body a {
   width: 100%;
   height: 70px;
   padding: 10px;
-  position: fixed;
   top: 0 !important;
   background: transparent;
   color: #fff;
@@ -74,14 +73,14 @@ body a {
 }
 .header {
   margin: 0;
-  padding: 42px;
+  padding: 0 42px;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
   min-height: 100vh;
 }
 .header:after {
-  height: 230px;
+  height: 300px;
   width: 200%;
   position: absolute;
   bottom: -38px;
@@ -96,8 +95,6 @@ body a {
 .headline {
   display: block;
   box-sizing: border-box;
-  top: 90px;
-  left: 60px;
   width: 65vw;
   max-width: 525px;
   font-weight: 900;
