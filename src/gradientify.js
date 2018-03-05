@@ -7,6 +7,8 @@ var gradientify = (function () {
   var mainElement = document.body
   var mainGradientIndex = 0
 
+  gradientify.presets = []
+
   gradientify.init = function (input) {
     mainElement = input.element
     gradients = input.gradients
@@ -23,16 +25,15 @@ var gradientify = (function () {
 
   gradientify.loadPreset = function (preset) {
     mainElement = preset.element
-
-    loadJSON((data) => {
-      gradients = data[preset.hash].gradients
+    loadPresets(() => {
+      gradients = gradientify.presets[preset.hash].gradients
       appendGradientsOnMainElement({
-        interval: data[preset.hash].interval
+        interval: gradientify.presets[preset.hash].interval
       })
 
       clearInterval(interval)
       initialiseInterval({
-        interval: data[preset.hash].interval
+        interval: gradientify.presets[preset.hash].interval
       })
     })
   }
@@ -64,13 +65,14 @@ var gradientify = (function () {
     return newElement
   }
 
-  function loadJSON (callback) {
+  function loadPresets (callback) {
     var xobj = new XMLHttpRequest()
     xobj.overrideMimeType('application/json')
     xobj.open('GET', './src/presets.json', true)
     xobj.onreadystatechange = function () {
       if (xobj.readyState === 4 && xobj.status === 200) {
-        callback(JSON.parse(xobj.responseText))
+        gradientify.presets = JSON.parse(xobj.responseText)
+        callback()
       }
     }
     xobj.send(null)
