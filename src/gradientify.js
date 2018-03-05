@@ -64,10 +64,10 @@ var gradientify = (function () {
     return newElement
   }
 
-  gradientify.loadPresetsJSON = function(callback) {
+  gradientify.loadPresetsJSON = function(url, callback) {
     var xobj = new XMLHttpRequest()
     xobj.overrideMimeType('application/json')
-    xobj.open('GET', './src/presets.json', true)
+    xobj.open('GET', url, true)
     xobj.onreadystatechange = function () {
       if (xobj.readyState === 4 && xobj.status === 200) {
         gradientify.presets = JSON.parse(xobj.responseText)
