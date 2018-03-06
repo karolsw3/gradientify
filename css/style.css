@@ -153,6 +153,7 @@ body a {
   display: block;
   border: 4px solid #fff;
   box-sizing: border-box;
+  position: relative;
 }
 .preset__credits {
   color: #ccf;

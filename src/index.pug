@@ -17,10 +17,12 @@ html
 		.header#header
 			.headline
 				p Animated backgrounds made easy
-		.presets
-			.preset
-				.preset__title f4a4dF
-				.preset__gradient#f4a4dF
-				.preset__credits Made by Karol Świerczek
-		script(src='https://cdn.rawgit.com/karolsw2/gradientify.js/06564801/build/gradientify.js')
+		#presets
+			.presets
+				.preset(v-for='(preset, key) in presets')
+					.preset__title {{preset.name}}
+					.preset__gradient(:id='key')
+					.preset__credits Hash: <b>{{key}}</b>
+		script(src='https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js')
+		script(src='https://rawgit.com/karolsw2/gradientify.js/master/build/gradientify.js')
 		script(src='js/index.js')
