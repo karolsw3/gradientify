@@ -4,7 +4,8 @@ function Gradientify() {
   let mainElement = document.body
   let mainGradientIndex = 0
   let gradientElements = []
-  let presets = []
+
+  var presets = []
 
   function init (input) {
     mainElement = input.element
