@@ -1,15 +1,12 @@
-var gradientify = (function () {
-  var gradientify = {}
-
+function Gradientify() {
   var interval = 3000
   var gradients = []
   var mainElement = document.body
   var mainGradientIndex = 0
+  var gradientElements = []
+  var presets = []
 
-  gradientify.gradientElements = []
-  gradientify.presets = []
-
-  gradientify.init = function (input) {
+  function init(input) {
     mainElement = input.element
     gradients = input.gradients
 
@@ -23,17 +20,17 @@ var gradientify = (function () {
     })
   }
 
-  gradientify.loadPreset = function (preset) {
+  function loadPreset(preset) {
     mainElement = preset.element
 
-    gradients = gradientify.presets[preset.hash].gradients
+    gradients = presets[preset.hash].gradients
     appendGradientsOnMainElement({
-      interval: gradientify.presets[preset.hash].interval
+      interval: presets[preset.hash].interval
     })
 
     clearInterval(interval)
     initialiseInterval({
-      interval: gradientify.presets[preset.hash].interval
+      interval: presets[preset.hash].interval
     })
   }
 
@@ -45,7 +42,7 @@ var gradientify = (function () {
         transitionDuration: input.interval
       })
 
-      gradientify.gradientElements.push(newGradient)
+      gradientElements.push(newGradient)
       mainElement.append(newGradient)
     })
   }
@@ -64,13 +61,13 @@ var gradientify = (function () {
     return newElement
   }
 
-  gradientify.loadPresetsJSON = function(url, callback) {
+  function loadPresetsJSON(url, callback) {
     var xobj = new XMLHttpRequest()
     xobj.overrideMimeType('application/json')
     xobj.open('GET', url, true)
     xobj.onreadystatechange = function () {
       if (xobj.readyState === 4 && xobj.status === 200) {
-        gradientify.presets = JSON.parse(xobj.responseText)
+        presets = JSON.parse(xobj.responseText)
         callback()
       }
     }
@@ -85,12 +82,16 @@ var gradientify = (function () {
   }
 
   function makeNewGradientVisible () {
-    gradientify.gradientElements.map((gradient, gradientIndex) => {
+    gradientElements.map((gradient, gradientIndex) => {
       if (gradientIndex === mainGradientIndex) gradient.style.opacity = 1
       else gradient.style.opacity = 0
     })
-    mainGradientIndex = (++mainGradientIndex % gradientify.gradientElements.length)
+    mainGradientIndex = (++mainGradientIndex % gradientElements.length)
   }
 
-  return gradientify
-})()
+  return {
+    init: init,
+    loadPreset: loadPreset,
+    loadPresetsJSON: loadPresetsJSON
+  }
+}
