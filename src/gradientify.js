@@ -1,12 +1,12 @@
 function Gradientify() {
-  var interval = 3000
-  var gradients = []
-  var mainElement = document.body
-  var mainGradientIndex = 0
-  var gradientElements = []
-  var presets = []
+  let interval = 3000
+  let gradients = []
+  let mainElement = document.body
+  let mainGradientIndex = 0
+  let gradientElements = []
+  let presets = []
 
-  function init(input) {
+  function init (input) {
     mainElement = input.element
     gradients = input.gradients
 
@@ -20,7 +20,7 @@ function Gradientify() {
     })
   }
 
-  function loadPreset(preset) {
+  function loadPreset (preset) {
     mainElement = preset.element
 
     gradients = presets[preset.hash].gradients
@@ -61,8 +61,8 @@ function Gradientify() {
     return newElement
   }
 
-  function loadPresetsJSON(url, callback) {
-    var xobj = new XMLHttpRequest()
+  function loadPresetsJSON (url, callback) {
+    let xobj = new XMLHttpRequest()
     xobj.overrideMimeType('application/json')
     xobj.open('GET', url, true)
     xobj.onreadystatechange = function () {
