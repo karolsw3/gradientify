@@ -3,10 +3,10 @@ var gradientify = (function () {
 
   var interval = 3000
   var gradients = []
-  var gradientElements = []
   var mainElement = document.body
   var mainGradientIndex = 0
 
+  gradientify.gradientElements = []
   gradientify.presets = []
 
   gradientify.init = function (input) {
@@ -45,7 +45,7 @@ var gradientify = (function () {
         transitionDuration: input.interval
       })
 
-      gradientElements.push(newGradient)
+      gradientify.gradientElements.push(newGradient)
       mainElement.append(newGradient)
     })
   }
@@ -85,11 +85,11 @@ var gradientify = (function () {
   }
 
   function makeNewGradientVisible () {
-    gradientElements.map((gradient, gradientIndex) => {
+    gradientify.gradientElements.map((gradient, gradientIndex) => {
       if (gradientIndex === mainGradientIndex) gradient.style.opacity = 1
       else gradient.style.opacity = 0
     })
-    mainGradientIndex = (++mainGradientIndex % gradientElements.length)
+    mainGradientIndex = (++mainGradientIndex % gradientify.gradientElements.length)
   }
 
   return gradientify
