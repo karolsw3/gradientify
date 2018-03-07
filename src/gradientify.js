@@ -18,11 +18,6 @@
     return gf
   }
 
-  Gradientify.prototype.defaults = {
-    interval: 3000,
-    target: document.body
-  }
-
   Gradientify.prototype.gradientifize = function (target, gradients, interval) {
     let elements
     if (gradients.constructor !== Array) {
