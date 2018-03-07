@@ -24,8 +24,31 @@
   }
 
   Gradientify.prototype.gradientifize = function (target, gradients, interval) {
-    let elements = appendGradientsOnTarget(target, gradients, interval)
-    initialiseInterval(elements, interval)
+    let elements
+    if (gradients.constructor !== Array) {
+      loadPresetsJSON((presets) => {
+        interval = presets[gradients].interval
+        gradients = presets[gradients].gradients
+        elements = appendGradientsOnTarget(target, gradients, interval)
+        initialiseInterval(elements, interval)
+      })
+    } else {
+      elements = appendGradientsOnTarget(target, gradients, interval)
+      initialiseInterval(elements, interval)
+    }
+  }
+
+  function loadPresetsJSON (callback) {
+    let xobj = new XMLHttpRequest()
+    xobj.overrideMimeType('application/json')
+    xobj.open('GET', 'https://raw.githubusercontent.com/karolsw2/gradientify.js/master/build/presets.json', true)
+    xobj.onreadystatechange = function () {
+      if (xobj.readyState === 4 && xobj.status === 200) {
+        let presets = JSON.parse(xobj.responseText)
+        callback(presets)
+      }
+    }
+    xobj.send(null)
   }
 
   function appendGradientsOnTarget (target, gradients, interval) {
