@@ -91,6 +91,8 @@ function Gradientify() {
   }
 
   return {
+    presets: presets,
+
     init: init,
     loadPreset: loadPreset,
     loadPresetsJSON: loadPresetsJSON
