@@ -9,6 +9,7 @@
   'use strict'
 
   var gf
+  var presets
 
   function Gradientify () {
     if (typeof this === `undefined` || Object.getPrototypeOf(this) !== Gradientify.prototype) {
@@ -34,16 +35,20 @@
   }
 
   function loadPresetsJSON (callback) {
-    let xobj = new XMLHttpRequest()
-    xobj.overrideMimeType('application/json')
-    xobj.open('GET', 'https://raw.githubusercontent.com/karolsw2/gradientify.js/master/build/presets.json', true)
-    xobj.onreadystatechange = function () {
-      if (xobj.readyState === 4 && xobj.status === 200) {
-        let presets = JSON.parse(xobj.responseText)
-        callback(presets)
+    if (!presets) {
+      let xobj = new XMLHttpRequest()
+      xobj.overrideMimeType('application/json')
+      xobj.open('GET', 'https://raw.githubusercontent.com/karolsw2/gradientify.js/master/build/presets.json', true)
+      xobj.onreadystatechange = function () {
+        if (xobj.readyState === 4 && xobj.status === 200) {
+          presets = JSON.parse(xobj.responseText)
+          callback(presets)
+        }
       }
+      xobj.send(null)
+    } else {
+      callback(presets) // There's no need to load presets if they were loaded before
     }
-    xobj.send(null)
   }
 
   function appendGradientsOnTarget (target, gradients, interval) {
