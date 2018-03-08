@@ -19,10 +19,10 @@ html
 				p Animated backgrounds made easy
 		#presets
 			.presets
-				.preset(v-for='(preset, key) in presets')
+				.preset(v-for='preset in presets')
 					.preset__title {{preset.name}}
-					.preset__gradient(:id='key')
-					.preset__credits Hash: <b>{{key}}</b>
+					.preset__gradient(:id='preset.id')
+					.preset__credits Hash: <b>{{preset.id}}</b>
 		script(src='https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js')
-		script(src='https://rawgit.com/karolsw2/gradientify.js/master/build/gradientify.js')
+		script(src='https://rawgit.com/karolsw2/gradientify.js/optimisation__change-design-pattern/src/gradientify.js')
 		script(src='js/index.js')
