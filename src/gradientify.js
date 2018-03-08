@@ -57,19 +57,20 @@
 
   function appendGradientsOnTarget (target, gradients, interval) {
     return gradients.map((gradient, index) => {
-      let gradientElement = createGradientElement(gradient, index, interval)
+      let gradientElement = createGradientElement(target, gradient, index, interval)
       target.append(gradientElement)
       return gradientElement
     })
   }
 
-  function createGradientElement (gradient, index, interval) {
+  function createGradientElement (target, gradient, index, interval) {
     let gradientElement = document.createElement(`div`)
 
     Object.assign(gradientElement.style, {
       backgroundImage: gradient,
       opacity: (index === 0) ? 1 : 0,
-      transitionDuration: `${interval / 1000}s`
+      transitionDuration: `${interval / 1000}s`,
+      zIndex: target === document.body ? -999 : 2
     })
 
     gradientElement.classList.add(`gradientify-gradient`)
