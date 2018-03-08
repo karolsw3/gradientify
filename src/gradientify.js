@@ -19,22 +19,16 @@
     return gf
   }
 
-  Gradientify.prototype.getPresets = function () {
-    if (presets) {
-      return presets
-    } else {
-      loadPresetsJSON(presets => {
-        return presets
-      })
-    }
-  }
-
   Gradientify.prototype.gradientifize = function (target, gradients, interval) {
     let elements
     if (gradients.constructor !== Array) {
       loadPresetsJSON((presets) => {
-        interval = presets[gradients].interval
-        gradients = presets[gradients].gradients
+        presets.find(preset => {
+          if (preset.id === gradients) {
+            interval = preset.interval
+            gradients = preset.gradients
+          }
+        })
         elements = appendGradientsOnTarget(target, gradients, interval)
         initialiseInterval(elements, interval)
       })
@@ -48,7 +42,7 @@
     if (!presets) {
       let xobj = new XMLHttpRequest()
       xobj.overrideMimeType('application/json')
-      xobj.open('GET', 'https://raw.githubusercontent.com/karolsw2/gradientify.js/master/build/presets.json', true)
+      xobj.open('GET', 'https://rawgit.com/karolsw2/gradientify.js/optimisation__change-design-pattern/build/presets.json', true)
       xobj.onreadystatechange = function () {
         if (xobj.readyState === 4 && xobj.status === 200) {
           presets = JSON.parse(xobj.responseText)
