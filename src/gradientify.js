@@ -19,6 +19,16 @@
     return gf
   }
 
+  Gradientify.prototype.getPresets = function () {
+    if (presets) {
+      return presets
+    } else {
+      loadPresetsJSON(presets => {
+        return presets
+      })
+    }
+  }
+
   Gradientify.prototype.gradientifize = function (target, gradients, interval) {
     let elements
     if (gradients.constructor !== Array) {
