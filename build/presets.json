@@ -1,5 +1,6 @@
-{
-  "f4a4dF":{
+[
+  {
+    "id":"f4a4dF",
     "name": "Main theme",
     "author": "karolsw2",
     "gradients": [ 
@@ -9,4 +10,4 @@
     ] ,
     "interval": 2000
   }
-}
+]
