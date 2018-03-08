@@ -3,11 +3,24 @@
     "id":"f4a4dF",
     "name": "Main theme",
     "author": "karolsw2",
-    "gradients": [ 
-      "linear-gradient(60deg, rgb(0, 0, 0), rgb(0, 0, 0))",
-      "linear-gradient(10deg, rgb(25, 23, 23), black)",
-      "radial-gradient(rgb(5, 12, 23), black)"
-    ] ,
+    "gradients": [
+      "linear-gradient(60deg, rgb(255, 91, 91), rgb(0, 0, 255))",
+      "linear-gradient(10deg, rgb(180, 132, 203), rgb(255, 0, 155))",
+      "radial-gradient(at center center, rgb(75, 35, 148), rgb(0, 71, 57))",
+      "linear-gradient(130deg, rgb(235, 23, 223), rgb(25, 89, 135), rgb(15, 189, 176))"
+    ],
     "interval": 2000
+  },
+  {
+    "id":"a9bb02",
+    "name": "Theme 2",
+    "author": "karolsw2",
+    "gradients": [
+      "linear-gradient(90deg, rgb(15, 211, 191), rgb(0, 0, 255))",
+      "linear-gradient(12deg, rgb(210, 192, 23), rgb(155, 231, 35))",
+      "radial-gradient(at center center, rgb(213, 135, 198), rgb(132, 171, 157))",
+      "linear-gradient(130deg, rgb(235, 123, 43), rgb(251, 189, 135), rgb(115, 189, 176))"
+    ],
+    "interval": 2500
   }
 ]
