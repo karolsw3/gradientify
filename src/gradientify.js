@@ -42,7 +42,7 @@
     if (!presets) {
       let xobj = new XMLHttpRequest()
       xobj.overrideMimeType('application/json')
-      xobj.open('GET', 'https://rawgit.com/karolsw2/gradientify.js/optimisation__change-design-pattern/build/presets.json', true)
+      xobj.open('GET', 'https://rawgit.com/karolsw2/gradientify.js/master/build/presets.json', true)
       xobj.onreadystatechange = function () {
         if (xobj.readyState === 4 && xobj.status === 200) {
           presets = JSON.parse(xobj.responseText)
