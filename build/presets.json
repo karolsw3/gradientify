@@ -22,5 +22,15 @@
       "linear-gradient(130deg, rgb(235, 123, 43), rgb(251, 189, 135), rgb(115, 189, 176))"
     ],
     "interval": 2500
+  },
+  {
+    "id":"b3aff9",
+    "name": "Pink and purple and green",
+    "gradients": [
+      "linear-gradient(90deg, pink, purple, green)",
+      "linear-gradient(12deg, pink, purple, orange)",
+      "linear-gradient(120deg, blue, green, pink)"
+    ],
+    "interval": 2500
   }
 ]
