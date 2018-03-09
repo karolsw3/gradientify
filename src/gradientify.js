@@ -1,100 +1,93 @@
-function Gradientify() {
-  let interval = 3000
-  let gradientsCSS = []
-  let mainElement = document.body
-  let mainGradientIndex = 0
-  let gradientElements = []
+/*
+ * Gradientify.js
+ * ------------
+ * Version : 3.0.0
+ * Author  : Karol Świerczek (@karolsw2)
+ */
 
-  var presets = []
+;(function () {
+  'use strict'
 
-  function init (input) {
-    mainElement = input.element
-    gradientsCSS = input.gradients
+  var gf
+  var presets
 
-    appendGradientsOnMainElement({
-      interval: input.interval
-    })
-
-    clearInterval(interval)
-    initialiseInterval({
-      interval: input.interval
-    })
-  }
-
-  function loadPreset (preset) {
-    mainElement = preset.element
-
-    gradientsCSS = presets[preset.hash].gradients
-    appendGradientsOnMainElement({
-      interval: presets[preset.hash].interval
-    })
-
-    clearInterval(interval)
-    initialiseInterval({
-      interval: presets[preset.hash].interval
-    })
-  }
-
-  function appendGradientsOnMainElement (input) {
-    gradientsCSS.map((gradient, gradientIndex) => {
-      let newGradient = createGradientElement({
-        backgroundImage: gradient,
-        index: gradientIndex,
-        transitionDuration: input.interval
-      })
-
-      gradientElements.push(newGradient)
-      mainElement.append(newGradient)
-    })
-  }
-
-  function createGradientElement (config) {
-    let newElement = document.createElement('div')
-
-    Object.assign(newElement.style, {
-      backgroundImage: config.backgroundImage,
-      opacity: (config.index === mainGradientIndex) ? 1 : 0,
-      transitionDuration: `${config.transitionDuration / 1000}s`
-    })
-
-    newElement.classList.add(`gradientify-gradient`)
-
-    return newElement
-  }
-
-  function loadPresetsJSON (url, callback) {
-    let xobj = new XMLHttpRequest()
-    xobj.overrideMimeType('application/json')
-    xobj.open('GET', url, true)
-    xobj.onreadystatechange = function () {
-      if (xobj.readyState === 4 && xobj.status === 200) {
-        presets = JSON.parse(xobj.responseText)
-        callback(presets)
-      }
+  function Gradientify () {
+    if (typeof this === `undefined` || Object.getPrototypeOf(this) !== Gradientify.prototype) {
+      return new Gradientify()
     }
-    xobj.send(null)
+    gf = this
+    return gf
   }
 
-  function initialiseInterval (config) {
-    makeNewGradientVisible()
-    interval = setInterval(() => {
-      makeNewGradientVisible()
-    }, config.interval + 40)
+  Gradientify.prototype.gradientifize = function (target, gradients, interval) {
+    let elements
+    if (gradients.constructor !== Array) {
+      loadPresetsJSON((presets) => {
+        presets.find(preset => {
+          if (preset.id === gradients) {
+            interval = preset.interval
+            gradients = preset.gradients
+          }
+        })
+        elements = appendGradientsOnTarget(target, gradients, interval)
+        initialiseInterval(elements, interval)
+      })
+    } else {
+      elements = appendGradientsOnTarget(target, gradients, interval)
+      initialiseInterval(elements, interval)
+    }
   }
 
-  function makeNewGradientVisible () {
-    gradientElements.map((gradient, gradientIndex) => {
-      if (gradientIndex === mainGradientIndex) gradient.style.opacity = 1
-      else gradient.style.opacity = 0
+  function loadPresetsJSON (callback) {
+    if (!presets) {
+      let xobj = new XMLHttpRequest()
+      xobj.overrideMimeType('application/json')
+      xobj.open('GET', 'https://rawgit.com/karolsw2/gradientify.js/optimisation__change-design-pattern/build/presets.json', true)
+      xobj.onreadystatechange = function () {
+        if (xobj.readyState === 4 && xobj.status === 200) {
+          presets = JSON.parse(xobj.responseText)
+          callback(presets)
+        }
+      }
+      xobj.send(null)
+    } else {
+      callback(presets) // There's no need to load presets if they were loaded before
+    }
+  }
+
+  function appendGradientsOnTarget (target, gradients, interval) {
+    return gradients.map((gradient, index) => {
+      let gradientElement = createGradientElement(target, gradient, index, interval)
+      target.append(gradientElement)
+      return gradientElement
     })
-    mainGradientIndex = (++mainGradientIndex % gradientElements.length)
   }
 
-  return {
-    presets: presets,
+  function createGradientElement (target, gradient, index, interval) {
+    let gradientElement = document.createElement(`div`)
 
-    init: init,
-    loadPreset: loadPreset,
-    loadPresetsJSON: loadPresetsJSON
+    Object.assign(gradientElement.style, {
+      backgroundImage: gradient,
+      opacity: (index === 0) ? 1 : 0,
+      transitionDuration: `${interval / 1000}s`,
+      zIndex: target === document.body ? -999 : 2
+    })
+
+    gradientElement.classList.add(`gradientify-gradient`)
+
+    return gradientElement
   }
-}
+
+  function initialiseInterval (elements, interval) {
+    setInterval(() => {
+      for (let i = 0; i < elements.length; i++) {
+        if (elements[i].style.opacity === `1`) {
+          elements[i].style.opacity = 0
+          elements[++i % elements.length].style.opacity = 1
+        }
+      }
+    }, interval + 40)
+  }
+
+  window.Gradientify = Gradientify
+})()
