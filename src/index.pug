@@ -13,9 +13,16 @@ html
 				a.menu__button(target='_blank' href='https://github.com/karolsw2/') My Github
 					.tooltip Karol Świerczek
 				a.menu__button.menu__button--primary(target='_blank' href='https://github.com/karolsw2/gradientify.js/tree/master/build') Download
-					.tooltip Latest stable: v.1.0.0
+					.tooltip Latest stable: v.3.0.0
 		.header#header
 			.headline
 				p Animated backgrounds made easy
-		script(src='https://cdn.rawgit.com/karolsw2/gradientify.js/06564801/build/gradientify.js')
+		#presets
+			.presets
+				.preset(v-for='preset in presets')
+					.preset__title {{preset.name}}
+					.preset__gradient(:id='preset.id')
+					.preset__credits Hash: <b>{{preset.id}}</b>
+		script(src='https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js')
+		script(src='https://rawgit.com/karolsw2/gradientify.js/optimisation__change-design-pattern/src/gradientify.js')
 		script(src='js/index.js')

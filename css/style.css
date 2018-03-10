@@ -4,6 +4,7 @@ body {
   margin: 0;
   width: 100%;
   min-height: 100%;
+  position: relative;
   font-family: 'Montserrat';
 }
 html a,
@@ -23,7 +24,6 @@ body a {
   width: 100%;
   height: 70px;
   padding: 10px;
-  position: fixed;
   top: 0 !important;
   background: transparent;
   color: #fff;
@@ -31,6 +31,7 @@ body a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 999;
 }
 .menu__slot {
   height: 100%;
@@ -64,23 +65,38 @@ body a {
   opacity: 0.9;
 }
 .menu__button:hover .tooltip {
-  width: 90%;
-  height: 14px;
+  width: 100%;
+  height: 51px;
   opacity: 1;
   top: 125%;
+  box-sizing: border-box;
 }
 .header {
   margin: 0;
-  padding: 10px;
+  padding: 0 42px;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+.header:after {
+  height: 300px;
+  width: 200%;
+  position: absolute;
+  bottom: -38px;
+  left: -50px;
+  box-sizing: border-box;
+  margin: 0;
+  padding-right: 168px;
+  content: '';
+  background: #fff;
+  transform: rotate(-7deg);
 }
 .headline {
   display: block;
-  position: absolute;
   box-sizing: border-box;
-  top: 90px;
-  left: 60px;
   width: 65vw;
+  max-width: 525px;
   font-weight: 900;
   font-size: 5.5em;
   color: #fff;
@@ -91,6 +107,8 @@ body a {
   text-align: center;
   top: 50%;
   cursor: default;
+  left: 0;
+  right: 0;
   width: 0;
   height: 0;
   font-size: 0.7em;
@@ -101,6 +119,45 @@ body a {
   transition-timing-function: cubic-bezier(0, 0, 0, 1.48);
   overflow: hidden;
   z-index: 999;
+}
+.presets {
+  display: grid;
+  grid-template: 1fr/1fr 1fr;
+  background: #fff;
+  grid-gap: 5px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.preset {
+  background: #111;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.preset__title {
+  width: 100%;
+  font-weight: 900;
+  font-size: 1.3em;
+  display: block;
+  color: #fff;
+}
+.preset__title:after {
+  content: '';
+  display: block;
+  width: 90px;
+}
+.preset__gradient {
+  width: 100%;
+  height: 300px;
+  margin: 10px auto;
+  display: block;
+  border: 4px solid #fff;
+  box-sizing: border-box;
+  position: relative;
+}
+.preset__credits {
+  color: #ccf;
+  display: block;
 }
 @media screen and (max-width: 830px) {
   .menu {
@@ -118,20 +175,28 @@ body a {
     margin: 10px 0;
     font-size: 1.3em;
   }
+  .header {
+    padding: 25px;
+  }
   .headline {
-    display: block;
-    position: unset;
-    text-align: center;
     width: 100%;
-    height: auto;
-    margin-top: 30px;
+    margin: 0 auto;
+    max-width: 100%;
   }
   .tooltip {
     display: none;
   }
 }
 @media screen and (max-width: 670px) {
+  .header {
+    padding: 0;
+    min-height: 75vh;
+  }
   .headline {
-    font-size: 2.5em;
+    font-size: 3.5em;
+    text-align: center;
+  }
+  .presets {
+    grid-template: 1fr/1fr;
   }
 }
