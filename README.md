@@ -4,7 +4,7 @@
 
 ## Getting Started
 
-Live demo: https://karolsw2.github.io/gradientify.github.io/
+Live demo: https://karolsw2.github.io/gradientify.io/
 
 Basic initialisation:
 
