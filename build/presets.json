@@ -30,5 +30,23 @@
       "linear-gradient(120deg, blue, green, pink)"
     ],
     "interval": 1200
+  },
+  {
+    "id":"828b25",
+    "name": "Is that lapis lazuli? Nope.",
+    "gradients": [
+      "linear-gradient(rgb(255,225,243), rgb(98,99,230), rgb(123,212,255))",
+      "linear-gradient(rgb(123,212,255), rgb(98,99,230), rgb(255,225,243)"
+    ],
+    "interval": 1000
+  },
+  {
+    "id":"8bc9fb",
+    "name": "Remember to keep things simple, stupid.",
+    "gradients": [
+      "linear-gradient(#ff5533, #55ff33)",
+      "linear-gradient(#55ff33, #ff5533)"
+    ],
+    "interval": 3000
   }
 ]
