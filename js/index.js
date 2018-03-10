@@ -22,7 +22,6 @@ xobj.onreadystatechange = function () {
     app.presets = JSON.parse(xobj.responseText)
     Vue.nextTick().then(function () {
       app.presets.map(preset => {
-        console.log(preset)
         gf.gradientifize(document.getElementById(preset.id), preset.id, 2000)
       })
     })
