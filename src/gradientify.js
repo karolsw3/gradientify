@@ -19,25 +19,26 @@
     return gf
   }
 
-  Gradientify.prototype.gradientifize = function (target, gradients, interval) {
+  Gradientify.prototype.create = function (target, gradients, interval) {
     let elements
-    if (gradients.constructor !== Array) {
-      loadPresetsJSON((presets) => {
-        presets.find(preset => {
-          if (preset.id === gradients) {
-            interval = preset.interval
-            gradients = preset.gradients
-          }
-        })
-        elements = createGradientElements(gradients, interval, target)
-        appendElementsOnTarget(elements, target)
-        initialiseInterval(elements, interval)
+    elements = createGradientElements(gradients, interval, target)
+    appendElementsOnTarget(elements, target)
+    initialiseInterval(elements, interval)
+  }
+
+  Gradientify.prototype.load = function (target, hash, interval) {
+    let elements, gradients
+    loadPresetsJSON((presets) => {
+      presets.find(preset => {
+        if (preset.id === hash) {
+          interval = preset.interval
+          gradients = preset.gradients
+        }
       })
-    } else {
       elements = createGradientElements(gradients, interval, target)
       appendElementsOnTarget(elements, target)
       initialiseInterval(elements, interval)
-    }
+    })
   }
 
   function loadPresetsJSON (callback) {

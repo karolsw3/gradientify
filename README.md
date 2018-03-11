@@ -11,7 +11,7 @@ Basic initialisation:
 ```javascript
 var gf = Gradientify()
 
-gf.gradientifize(document.body, [ // Specify target element
+gf.create(document.body, [ // Target element
   'linear-gradient(60deg, rgb(255, 0, 0), rgb(0, 0, 255))', // Gradients CSS
   'linear-gradient(10deg, rgb(25, 123, 23), #ff22af)',
   'radial-gradient(rgb(25, 123, 223), red)'
@@ -22,7 +22,7 @@ You can also load ready-made presets:
 
 ```javascript
 var gf = Gradientify()
-gf.gradientifize(document.body,'f4a4dF', 2000)
+gf.load(document.body,'f4a4dF', 2000)
 ```
 Presets will be loaded from presets.json located in the build/ folder.
 All presets are shown on the webiste. 
