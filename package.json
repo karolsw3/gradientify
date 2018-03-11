@@ -23,6 +23,10 @@
   },
   "homepage": "https://github.com/karolsw2/gradientify.js#readme",
   "dependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "gulp-babel": "^7.0.1",
     "gulp-cli": "^2.0.1",
     "gulp-pug": "^3.3.0",
     "gulp-stylus": "^2.7.0",
