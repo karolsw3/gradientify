@@ -12,7 +12,7 @@
   },
   {
     "id":"a9bb02",
-    "name": "Theme 2",
+    "name": "LSD",
     "gradients": [
       "linear-gradient(90deg, rgb(15, 211, 191), rgb(0, 0, 255))",
       "linear-gradient(12deg, rgb(210, 192, 23), rgb(155, 231, 35))",
@@ -38,7 +38,7 @@
       "linear-gradient(rgb(255,225,243), rgb(98,99,230), rgb(123,212,255))",
       "linear-gradient(rgb(123,212,255), rgb(98,99,230), rgb(255,225,243)"
     ],
-    "interval": 1000
+    "interval": 4000
   },
   {
     "id":"8bc9fb",
@@ -48,5 +48,15 @@
       "linear-gradient(#55ff33, #ff5533)"
     ],
     "interval": 3000
+  },
+  {
+    "id":"62031d",
+    "name": "Red idea",
+    "gradients": [
+      "linear-gradient(60deg, red, #2c2c72)",
+      "linear-gradient(70deg, #e14b4b, #264e7a)",
+      "linear-gradient(90deg, #c22d2d, #20344a)"
+    ],
+    "interval": 2500
   }
 ]

@@ -19,22 +19,31 @@
     return gf
   }
 
+  Gradientify.prototype.data = {
+    target: document.body,
+    gradients: [],
+    interval: 2000
+  }
+
   Gradientify.prototype.gradientifize = function (target, gradients, interval) {
     let elements
+    this.data.target = target
+    this.data.gradients = gradients
+    this.data.interval = interval
     if (gradients.constructor !== Array) {
       loadPresetsJSON((presets) => {
         presets.find(preset => {
           if (preset.id === gradients) {
             interval = preset.interval
-            gradients = preset.gradients
+            this.data.gradients = preset.gradients
           }
         })
-        elements = appendGradientsOnTarget(target, gradients, interval)
-        initialiseInterval(elements, interval)
+        elements = appendGradientsOnTarget()
+        initialiseInterval(elements)
       })
     } else {
-      elements = appendGradientsOnTarget(target, gradients, interval)
-      initialiseInterval(elements, interval)
+      elements = appendGradientsOnTarget()
+      initialiseInterval(elements)
     }
   }
 
@@ -51,26 +60,28 @@
       }
       xobj.send(null)
     } else {
-      callback(presets) // There's no need to load presets if they were loaded before
+      callback(presets)
     }
   }
 
-  function appendGradientsOnTarget (target, gradients, interval) {
+  function appendGradientsOnTarget () {
+    var gradients = Gradientify.prototype.data.gradients
+    console.log(gradients)
     return gradients.map((gradient, index) => {
-      let gradientElement = createGradientElement(target, gradient, index, interval)
-      target.append(gradientElement)
+      let gradientElement = createGradientElement(gradient, index)
+      Gradientify.prototype.data.target.append(gradientElement)
       return gradientElement
     })
   }
 
-  function createGradientElement (target, gradient, index, interval) {
+  function createGradientElement (gradient, index) {
     let gradientElement = document.createElement(`div`)
 
     Object.assign(gradientElement.style, {
       backgroundImage: gradient,
       opacity: (index === 0) ? 1 : 0,
-      transitionDuration: `${interval / 1000}s`,
-      zIndex: target === document.body ? -999 : 2
+      transitionDuration: `${Gradientify.prototype.data.interval / 1000}s`,
+      zIndex: Gradientify.prototype.data.target === document.body ? -999 : 2
     })
 
     gradientElement.classList.add(`gradientify-gradient`)
@@ -78,7 +89,7 @@
     return gradientElement
   }
 
-  function initialiseInterval (elements, interval) {
+  function initialiseInterval (elements) {
     setInterval(() => {
       for (let i = 0; i < elements.length; i++) {
         if (elements[i].style.opacity === `1`) {
@@ -86,7 +97,7 @@
           elements[++i % elements.length].style.opacity = 1
         }
       }
-    }, interval + 40)
+    }, Gradientify.prototype.data.interval + 40)
   }
 
   window.Gradientify = Gradientify
