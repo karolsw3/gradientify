@@ -30,7 +30,7 @@
     let elements, gradients
     loadPresetsJSON((presets) => {
       presets.find(preset => {
-        if (preset.id === hash) {
+        if (preset.hash === hash) {
           interval = preset.interval
           gradients = preset.gradients
         }

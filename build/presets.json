@@ -1,6 +1,6 @@
 [
   {
-    "id":"f4a4dF",
+    "hash":"f4a4dF",
     "name": "Main theme",
     "gradients": [
       "linear-gradient(60deg, rgb(255, 91, 91), rgb(0, 0, 255))",
@@ -11,7 +11,7 @@
     "interval": 2000
   },
   {
-    "id":"a9bb02",
+    "hash":"a9bb02",
     "name": "LSD",
     "gradients": [
       "linear-gradient(90deg, rgb(15, 211, 191), rgb(0, 0, 255))",
@@ -22,7 +22,7 @@
     "interval": 2500
   },
   {
-    "id":"b3aff9",
+    "hash":"b3aff9",
     "name": "Weird mix",
     "gradients": [
       "linear-gradient(90deg, pink, purple, green)",
@@ -32,7 +32,7 @@
     "interval": 1200
   },
   {
-    "id":"828b25",
+    "hash":"828b25",
     "name": "Is that lapis lazuli? Nope.",
     "gradients": [
       "linear-gradient(rgb(255,225,243), rgb(98,99,230), rgb(123,212,255))",
@@ -41,8 +41,8 @@
     "interval": 4000
   },
   {
-    "id":"8bc9fb",
-    "name": "Remember to keep things simple, stupid.",
+    "hash":"8bc9fb",
+    "name": "Remember to keep things simple, stuphash.",
     "gradients": [
       "linear-gradient(#ff5533, #55ff33)",
       "linear-gradient(#55ff33, #ff5533)"
@@ -50,8 +50,8 @@
     "interval": 3000
   },
   {
-    "id":"62031d",
-    "name": "Red idea",
+    "hash":"62031d",
+    "name": "Red hashea",
     "gradients": [
       "linear-gradient(60deg, red, #2c2c72)",
       "linear-gradient(70deg, #e14b4b, #264e7a)",
