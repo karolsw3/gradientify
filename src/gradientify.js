@@ -9,7 +9,7 @@
   'use strict'
 
   var gf
-  var presets
+  var presets = []
 
   function Gradientify () {
     if (typeof this === `undefined` || Object.getPrototypeOf(this) !== Gradientify.prototype) {
@@ -19,36 +19,29 @@
     return gf
   }
 
-  Gradientify.prototype.data = {
-    target: document.body,
-    gradients: [],
-    interval: 2000
-  }
-
   Gradientify.prototype.gradientifize = function (target, gradients, interval) {
     let elements
-    this.data.target = target
-    this.data.gradients = gradients
-    this.data.interval = interval
     if (gradients.constructor !== Array) {
       loadPresetsJSON((presets) => {
         presets.find(preset => {
           if (preset.id === gradients) {
             interval = preset.interval
-            this.data.gradients = preset.gradients
+            gradients = preset.gradients
           }
         })
-        elements = appendGradientsOnTarget()
-        initialiseInterval(elements)
+        elements = createGradientElements(gradients, interval, target)
+        appendElementsOnTarget(elements, target)
+        initialiseInterval(elements, interval)
       })
     } else {
-      elements = appendGradientsOnTarget()
-      initialiseInterval(elements)
+      elements = createGradientElements(gradients, interval, target)
+      appendElementsOnTarget(elements, target)
+      initialiseInterval(elements, interval)
     }
   }
 
   function loadPresetsJSON (callback) {
-    if (!presets) {
+    if (presets.length === 0) {
       let xobj = new XMLHttpRequest()
       xobj.overrideMimeType('application/json')
       xobj.open('GET', 'https://rawgit.com/karolsw2/gradientify.js/master/build/presets.json', true)
@@ -64,32 +57,30 @@
     }
   }
 
-  function appendGradientsOnTarget () {
-    var gradients = Gradientify.prototype.data.gradients
-    console.log(gradients)
+  function appendElementsOnTarget (elements, target) {
+    elements.map(element => {
+      target.appendChild(element)
+    })
+  }
+
+  function createGradientElements (gradients, interval, target) {
     return gradients.map((gradient, index) => {
-      let gradientElement = createGradientElement(gradient, index)
-      Gradientify.prototype.data.target.append(gradientElement)
+      let gradientElement = document.createElement(`div`)
+
+      Object.assign(gradientElement.style, {
+        backgroundImage: gradient,
+        opacity: (index === 0) ? 1 : 0,
+        transitionDuration: `${interval / 1000}s`,
+        zIndex: target === document.body ? -999 : 2
+      })
+
+      gradientElement.classList.add(`gradientify-gradient`)
+
       return gradientElement
     })
   }
 
-  function createGradientElement (gradient, index) {
-    let gradientElement = document.createElement(`div`)
-
-    Object.assign(gradientElement.style, {
-      backgroundImage: gradient,
-      opacity: (index === 0) ? 1 : 0,
-      transitionDuration: `${Gradientify.prototype.data.interval / 1000}s`,
-      zIndex: Gradientify.prototype.data.target === document.body ? -999 : 2
-    })
-
-    gradientElement.classList.add(`gradientify-gradient`)
-
-    return gradientElement
-  }
-
-  function initialiseInterval (elements) {
+  function initialiseInterval (elements, interval) {
     setInterval(() => {
       for (let i = 0; i < elements.length; i++) {
         if (elements[i].style.opacity === `1`) {
@@ -97,7 +88,7 @@
           elements[++i % elements.length].style.opacity = 1
         }
       }
-    }, Gradientify.prototype.data.interval + 40)
+    }, interval + 40)
   }
 
   window.Gradientify = Gradientify
