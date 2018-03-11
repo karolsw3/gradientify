@@ -126,7 +126,7 @@ body a {
   background: #fff;
   grid-gap: 5px;
   width: 100%;
-  padding: 10px;
+  padding: 50px 10px;
   box-sizing: border-box;
 }
 .preset {
@@ -158,6 +158,14 @@ body a {
 .preset__credits {
   color: #ccf;
   display: block;
+}
+.footer {
+  width: 100%;
+  bottom: 0 !important;
+  box-sizing: border-box;
+  padding: 10px 0;
+  color: #fff;
+  text-align: center;
 }
 @media screen and (max-width: 830px) {
   .menu {
