@@ -1,6 +1,7 @@
 
 var gf = Gradientify()
-gf.gradientifize(document.body, [
+
+gf.create(document.body, [
   'linear-gradient(60deg, rgb(255, 91, 91), rgb(0, 0, 255))',
   'linear-gradient(10deg, rgb(180, 132, 203), rgb(255, 0, 155))',
   'radial-gradient(at center center, rgb(75, 35, 148), rgb(0, 71, 57))',
@@ -22,7 +23,7 @@ xobj.onreadystatechange = function () {
     app.presets = JSON.parse(xobj.responseText)
     Vue.nextTick().then(function () {
       app.presets.map(preset => {
-        gf.gradientifize(document.getElementById(preset.id), preset.id, 2000)
+        gf.load(document.getElementById(preset.id), preset.id, 2000)
       })
     })
   }
