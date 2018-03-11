@@ -23,7 +23,7 @@ xobj.onreadystatechange = function () {
     app.presets = JSON.parse(xobj.responseText)
     Vue.nextTick().then(function () {
       app.presets.map(preset => {
-        gf.load(document.getElementById(preset.id), preset.id, 2000)
+        gf.load(document.getElementById(preset.hash), preset.hash, 2000)
       })
     })
   }
