@@ -192,8 +192,11 @@ body a {
     padding: 0;
     min-height: 75vh;
   }
+  .header:after {
+    height: 150px;
+  }
   .headline {
-    font-size: 3.5em;
+    font-size: 3em;
     text-align: center;
   }
   .presets {
