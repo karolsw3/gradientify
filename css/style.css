@@ -136,16 +136,16 @@ body a {
   box-sizing: border-box;
 }
 .preset {
-  background: #111;
   padding: 10px;
   box-sizing: border-box;
+  border: 1px solid #ddd;
 }
 .preset__title {
   width: 100%;
   font-weight: 900;
   font-size: 1.3em;
   display: block;
-  color: #fff;
+  color: #6f689a;
 }
 .preset__title:after {
   content: '';
@@ -162,7 +162,7 @@ body a {
   position: relative;
 }
 .preset__credits {
-  color: #ccf;
+  color: #6f689a;
   display: block;
 }
 .footer {
