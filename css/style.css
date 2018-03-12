@@ -79,6 +79,12 @@ body a {
   overflow: hidden;
   min-height: 100vh;
 }
+.header__image {
+  position: absolute;
+  right: 40px;
+  top: 0px;
+  z-index: -1;
+}
 .header:after {
   height: 300px;
   width: 200%;
