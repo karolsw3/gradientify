@@ -42,7 +42,7 @@
   },
   {
     "hash":"8bc9fb",
-    "name": "Remember to keep things simple, stuphash.",
+    "name": "Remember to keep things simple, stupid.",
     "gradients": [
       "linear-gradient(#ff5533, #55ff33)",
       "linear-gradient(#55ff33, #ff5533)"
@@ -51,11 +51,31 @@
   },
   {
     "hash":"62031d",
-    "name": "Red hashea",
+    "name": "Red idea",
     "gradients": [
       "linear-gradient(60deg, red, #2c2c72)",
       "linear-gradient(70deg, #e14b4b, #264e7a)",
       "linear-gradient(90deg, #c22d2d, #20344a)"
+    ],
+    "interval": 2500
+  },
+  {
+    "hash":"8a07b4",
+    "name": "Cold drink",
+    "gradients": [
+      "linear-gradient(80deg, #8a07b4, #8a07b4)",
+      "linear-gradient(90deg, #8a07b4, rgb(20, 159, 38))",
+      "linear-gradient(100deg, rgb(255, 254, 0), rgb(15, 93, 25))"
+    ],
+    "interval": 3500
+  },
+  {
+    "hash":"dd9964",
+    "name": "Triple W",
+    "gradients": [
+      "linear-gradient(to right,#cd5050 33%, #a4c684 33%, #a4c684 66%, #cbdb95 66%)",
+      "linear-gradient(to right,#cbdb95 33%, #a4c684 33%, #a4c684 66%, #cd5050 66%)",
+      "linear-gradient(to right,#cd5050 33%, #cbdb95 33%, #cbdb95 66%, #cd5050 66%)"
     ],
     "interval": 2500
   }
