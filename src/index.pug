@@ -1,12 +1,12 @@
 html
 	head
-		title Gradientify.js
+		title Gradientify.js - Animated backgrounds made easy
 		meta(charset='UTF-8')
 		meta(name='viewport' content='width=device-width, initial-scale=1')
 		link(rel='stylesheet' type='text/css' href='css/style.css')
 		link(rel='stylesheet' type='text/css' href='https://cdn.rawgit.com/karolsw2/gradientify.js/06564801/build/gradientify.css')
 	body
-		.menu
+		nav.menu
 			.menu__slot
 				a.menu__button(target='_blank' href='https://github.com/karolsw2/gradientify.js') Gradientify.js
 			.menu__slot
@@ -14,7 +14,7 @@ html
 					.tooltip Karol Świerczek
 				a.menu__button.menu__button--primary(target='_blank' href='https://github.com/karolsw2/gradientify.js/tree/master/build') Download
 					.tooltip Latest stable: v.3.1.0
-		.header#header
+		header.header#header
 			.headline
 				p Animated backgrounds made easy
 			.header__image
@@ -25,7 +25,7 @@ html
 					.preset__title {{preset.name}}
 					.preset__gradient(:id='preset.hash')
 					.preset__credits Hash: <b>{{preset.hash}}</b>
-		.footer Made with ❤️ by Karol Świerczek (@karolsw2)
+		footer Made with ❤️ by Karol Świerczek (@karolsw2)
 		script(src='js/vue.min.js')
 		script(src='https://rawgit.com/karolsw2/gradientify.js/master/build/gradientify.js')
 		script(src='js/index.js')

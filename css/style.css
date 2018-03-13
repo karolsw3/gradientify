@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,900");
+html {
+  background-image: linear-gradient(60deg, #ff5b5b, #00f);
+}
 html,
 body {
   margin: 0;
@@ -165,7 +168,7 @@ body a {
   color: #6f689a;
   display: block;
 }
-.footer {
+footer {
   width: 100%;
   bottom: 0 !important;
   box-sizing: border-box;
