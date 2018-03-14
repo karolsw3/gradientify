@@ -83,7 +83,7 @@
           elements[++i % elements.length].style.opacity = 1
         }
       }
-    }, interval + 60)
+    }, interval + 200)
   }
 
   window.Gradientify = Gradientify
