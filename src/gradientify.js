@@ -1,7 +1,7 @@
 /*
  * Gradientify.js
  * ------------
- * Version : 3.0.0
+ * Version : 3.2.0
  * Author  : Karol Świerczek (@karolsw2)
  */
 
@@ -26,36 +26,30 @@
     initialiseInterval(elements, interval)
   }
 
-  Gradientify.prototype.load = function (target, hash, interval) {
+  Gradientify.prototype.loadFromPreset = function (target, hash, interval) {
     let elements, gradients
-    loadPresetsJSON((presets) => {
-      presets.find(preset => {
-        if (preset.hash === hash) {
-          interval = preset.interval
-          gradients = preset.gradients
-        }
-      })
-      elements = createGradientElements(gradients, interval, target)
-      appendElementsOnTarget(elements, target)
-      initialiseInterval(elements, interval)
+    presets.map(preset => {
+      if (preset.hash === hash) {
+        interval = preset.interval
+        gradients = preset.gradients
+      }
     })
+    elements = createGradientElements(gradients, interval, target)
+    appendElementsOnTarget(elements, target)
+    initialiseInterval(elements, interval)
   }
 
-  function loadPresetsJSON (callback) {
-    if (presets.length === 0) {
-      let xobj = new XMLHttpRequest()
-      xobj.overrideMimeType('application/json')
-      xobj.open('GET', 'https://rawgit.com/karolsw2/gradientify.js/master/build/presets.json', true)
-      xobj.onreadystatechange = function () {
-        if (xobj.readyState === 4 && xobj.status === 200) {
-          presets = JSON.parse(xobj.responseText)
-          callback(presets)
-        }
+  Gradientify.prototype.getPresets = function (url, callback) {
+    let xobj = new XMLHttpRequest()
+    xobj.overrideMimeType('application/json')
+    xobj.open('GET', url, true)
+    xobj.onreadystatechange = function () {
+      if (xobj.readyState === 4 && xobj.status === 200) {
+        presets = JSON.parse(xobj.responseText)
+        callback()
       }
-      xobj.send(null)
-    } else {
-      callback(presets)
     }
+    xobj.send(null)
   }
 
   function appendElementsOnTarget (elements, target) {
