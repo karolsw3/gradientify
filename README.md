@@ -1,6 +1,8 @@
 # gradientify.js
-
-![](https://image.ibb.co/fT8O3H/Screenshot_137.png)
+<p align="center">
+  <img src="https://image.ibb.co/k1cWHx/logo.png"><br>
+  <b>Animated backgrounds made easy</b>
+</p>
 
 ## Getting Started
 
