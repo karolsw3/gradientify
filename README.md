@@ -22,10 +22,13 @@ You can also load ready-made presets:
 
 ```javascript
 var gf = Gradientify()
-gf.load(document.body,'f4a4dF', 2000)
+
+gf.getPresets(`https://rawgit.com/karolsw2/gradientify.js/master/build/presets.json`, () => { 
+  gf.loadFromPreset(document.body,'b3aff9', 4000)
+  gf.loadFromPreset(document.getElementById('yourElementId'),'a9bb02', 3600)
+})
 ```
-Presets will be loaded from presets.json located in the build/ folder.
-All presets are shown on the webiste. 
+All presets are being shown on the webiste. 
 
 Remember that if you want your gradients to be placed properly into the target element, you have to set your targets CSS position to relative.
 
