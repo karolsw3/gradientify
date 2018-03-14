@@ -73,9 +73,9 @@
     "hash":"dd9964",
     "name": "RGB",
     "gradients": [
-      "linear-gradient(to right,red 33%, red 33%, green 66%, blue 66%)",
-      "linear-gradient(to right,green 33%, green 33%, blue 66%, red 66%)",
-      "linear-gradient(to right,blue 33%, blue 33%, red 66%, green 66%)"
+      "linear-gradient(to right,red, green, blue)",
+      "linear-gradient(to right,green, red, blue)",
+      "linear-gradient(to right,blue, green, red)"
     ],
     "interval": 2500
   },
