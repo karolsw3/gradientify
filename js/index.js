@@ -28,8 +28,10 @@ xobj.onreadystatechange = function () {
   if (xobj.readyState === 4 && xobj.status === 200) {
     app.presets = shuffleArray(JSON.parse(xobj.responseText))
     Vue.nextTick().then(function () {
-      app.presets.map(function (preset) {
-        gf.load(document.getElementById(preset.hash), preset.hash, 2000)
+      gf.getPresets('https://rawgit.com/karolsw2/gradientify.js/master/build/presets.json', function () {
+        app.presets.map(function (preset) {
+          gf.loadFromPreset(document.getElementById(preset.hash), preset.hash, 2000)
+        })
       })
     })
   }
