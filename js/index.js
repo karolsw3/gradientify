@@ -23,12 +23,12 @@ function shuffleArray (array) {
 
 var xobj = new XMLHttpRequest()
 xobj.overrideMimeType('application/json')
-xobj.open('GET', 'https://rawgit.com/karolsw2/gradientify.js/master/build/presets.json', true)
+xobj.open('GET', 'https://cdn.rawgit.com/karolsw2/gradientify.js/master/build/presets.json', true)
 xobj.onreadystatechange = function () {
   if (xobj.readyState === 4 && xobj.status === 200) {
     app.presets = shuffleArray(JSON.parse(xobj.responseText))
     Vue.nextTick().then(function () {
-      gf.getPresets('https://rawgit.com/karolsw2/gradientify.js/master/build/presets.json', function () {
+      gf.getPresets('https://cdn.rawgit.com/karolsw2/gradientify.js/master/build/presets.json', function () {
         app.presets.map(function (preset) {
           gf.loadFromPreset(document.getElementById(preset.hash), preset.hash, 2000)
         })
