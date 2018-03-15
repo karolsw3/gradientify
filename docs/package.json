@@ -1,0 +1,25 @@
+{
+  "name": "gradientify.github.io",
+  "version": "1.0.0",
+  "description": "A website for gradientify.js library",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karolsw2/gradientify.github.io.git"
+  },
+  "keywords": [
+    "gradientify"
+  ],
+  "author": "Karol Świerczek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karolsw2/gradientify.github.io/issues"
+  },
+  "homepage": "https://github.com/karolsw2/gradientify.github.io#readme",
+  "dependencies": {
+    "gulp-debug": "^3.2.0"
+  }
+}

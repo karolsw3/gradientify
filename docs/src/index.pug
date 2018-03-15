@@ -1,0 +1,34 @@
+html
+	head
+		title Gradientify.js - Animated backgrounds made easy
+		meta(charset='UTF-8')
+		meta(name='viewport' content='width=device-width, initial-scale=1')
+		link(rel='stylesheet' type='text/css' href='css/style.css')
+		link(rel='stylesheet' type='text/css' href='https://cdn.rawgit.com/karolsw2/gradientify.js/06564801/build/gradientify.css')
+	body
+		nav.menu
+			.menu__slot
+				a.menu__button(target='_blank' href='https://github.com/karolsw2/gradientify.js') Gradientify.js
+			.menu__slot
+				a.menu__button(target='_blank' href='https://github.com/karolsw2/') My Github
+					.tooltip Karol Świerczek
+				a.menu__button.menu__button--primary(target='_blank' href='https://github.com/karolsw2/gradientify.js/tree/master/build') Download
+					.tooltip Latest stable: v.3.2.0
+		header.header#header
+			.headline
+				p Animated backgrounds made easy
+			.header__image
+				img(src='images/background.png' height='600px')
+		section
+			img(src='images/logo.png')
+			p A micro javascript library for creating and animating CSS gradient backgrounds
+		#presets
+			.presets
+				.preset(v-for='preset in presets')
+					.preset__title {{preset.name}}
+					.preset__gradient(:id='preset.hash')
+					.preset__credits Hash: <b>{{preset.hash}}</b>
+		footer Made with ❤️ by Karol Świerczek (@karolsw2)
+		script(src='js/vue.min.js')
+		script(src='https://cdn.rawgit.com/karolsw2/gradientify.js/master/build/gradientify.js')
+		script(src='js/index.js')
