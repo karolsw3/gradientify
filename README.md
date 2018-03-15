@@ -7,6 +7,14 @@
 
 Live demo: https://karolsw2.github.io/gradientify.io/
 
+To include the library you can download it, or simply use CDN links:
+```html
+<!-- Place this in the <head> tag -->
+<link rel='stylesheet' type='text/css' href='https://cdn.rawgit.com/karolsw2/gradientify.js/06564801/build/gradientify.css'>
+<!-- And this before </body> closing tag -->
+<script src='https://cdn.rawgit.com/karolsw2/gradientify.js/master/build/gradientify.js'>
+```
+
 Basic initialisation:
 
 ```javascript
