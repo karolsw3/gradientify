@@ -19,14 +19,16 @@
     return gf
   }
 
-  Gradientify.prototype.create = function (target, gradients, interval) { // Create gradient background from own specified set
+  // Create gradient background from own specified set
+  Gradientify.prototype.create = function (target, gradients, interval) {
     let elements
     elements = createGradientElements(gradients, interval, target)
     appendElementsOnTarget(elements, target)
     initialiseInterval(elements, interval)
   }
 
-  Gradientify.prototype.loadFromPreset = function (target, hash, interval) { // When the presets.json are loaded - create gradient background from specified preset
+  // When the presets.json are loaded - create gradient background from specified preset
+  Gradientify.prototype.loadFromPreset = function (target, hash, interval) {
     let elements, gradients
     presets.map(preset => {
       if (preset.hash === hash) {
@@ -39,7 +41,8 @@
     initialiseInterval(elements, interval)
   }
 
-  Gradientify.prototype.getPresets = function (url, callback) { // Load gradient presets.json from specified url
+  // Load gradient presets.json from specified url
+  Gradientify.prototype.getPresets = function (url, callback) {
     let xobj = new XMLHttpRequest()
     xobj.overrideMimeType('application/json')
     xobj.open('GET', url, true)
@@ -52,13 +55,15 @@
     xobj.send(null)
   }
 
-  function appendElementsOnTarget (elements, target) { // Append gradient elements on the target element
+  // Append gradient elements on the target element
+  function appendElementsOnTarget (elements, target) {
     elements.map(element => {
       target.appendChild(element)
     })
   }
 
-  function createGradientElements (gradients, interval, target) { // Create gradient elements from specified set of gradient backgrounds
+  // Create gradient elements from specified set of gradient backgrounds
+  function createGradientElements (gradients, interval, target) {
     return gradients.map((gradient, index) => {
       let gradientElement = document.createElement(`div`)
 
@@ -75,7 +80,8 @@
     })
   }
 
-  function initialiseInterval (elements, interval) { // Initialise interval to animate gradients
+  // Initialise interval to animate gradients
+  function initialiseInterval (elements, interval) {
     setInterval(() => {
       for (let i = 0; i < elements.length; i++) {
         if (elements[i].style.opacity === `1`) {
