@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://image.ibb.co/k1cWHx/logo.png"><br>
+  <img src="https://image.ibb.co/eGhiZc/logo.png"><br>
   <b>Animated backgrounds made easy</b>
 </p>
 
