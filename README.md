@@ -5,8 +5,6 @@
 
 ## Getting Started
 
-Live demo: https://karolsw2.github.io/gradientify.js/
-
 To include the library you can download it, or simply use CDN links:
 ```html
 <!-- Place this in the <head> tag -->
