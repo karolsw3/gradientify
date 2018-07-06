@@ -40,5 +40,5 @@ xobj.send(null)
 
 document.addEventListener('scroll', () => {
   var scroll = document.documentElement.scrollTop
-  document.getElementsByClassName('header__image')[0].style.top = scroll * 0.45
+  document.getElementsByClassName('header__image')[0].style.top = scroll * 0.45 + "px"
 })
