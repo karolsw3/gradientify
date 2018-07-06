@@ -39,6 +39,6 @@ xobj.onreadystatechange = function () {
 xobj.send(null)
 
 document.addEventListener('scroll', () => {
-  var scroll = document.body.scrollTop
+  var scroll = document.documentElement.scrollTop
   document.getElementsByClassName('header__image')[0].style.top = scroll * 0.45
 })
