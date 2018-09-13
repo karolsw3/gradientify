@@ -36,7 +36,7 @@ gf.getPresets("https://rawgit.com/karolsw2/gradientify.js/master/build/presets.j
 });
 ```
 You can load specific preset by using its hash number.
-Just visit https://karolsw2.github.io/gradientify.js/ , search for your favourite gradient and copy its hash number.
+Just visit https://karolsw3.github.io/gradientify.js/ , search for your favourite gradient and copy its hash number.
 
 Remember that if you want your gradients to be placed properly into the target element, you have to set your targets CSS position to relative.
 
