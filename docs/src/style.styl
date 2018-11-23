@@ -13,7 +13,7 @@ html, body
 ::selection
 	color #2f2f2f
 	background white
-::-moz-selection 
+::-moz-selection
 	background white
 	color #2f2f2f
 .menu
@@ -41,7 +41,7 @@ html, body
 		font-weight 300
 		cursor pointer
 		padding 10px 20px
-		border 4px solid transparent 
+		border 4px solid transparent
 		box-sizing border-box
 		display flex
 		align-items center
@@ -113,13 +113,16 @@ html, body
 	transition-timing-function cubic-bezier(0,0,0,1.48)
 	overflow hidden
 	z-index 999
-
+#presets
+	background white
 .presets
 	display grid
 	grid-template 1fr / 1fr 1fr
 	background white
-	grid-gap 5px
+	grid-gap 15px
 	width 100%
+	max-width 1400px
+	margin 0 auto
 	padding 50px 10px
 	box-sizing border-box
 .preset
@@ -160,7 +163,7 @@ footer
 	padding 10px 0
 	color white
 	text-align center
-		
+
 @media screen and (max-width: 830px)
 	.menu
 		flex-direction column
@@ -193,4 +196,3 @@ footer
 		text-align center
 	.presets
 		grid-template 1fr / 1fr
-

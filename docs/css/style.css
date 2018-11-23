@@ -129,12 +129,17 @@ body a {
   overflow: hidden;
   z-index: 999;
 }
+#presets {
+  background: #fff;
+}
 .presets {
   display: grid;
   grid-template: 1fr/1fr 1fr;
   background: #fff;
-  grid-gap: 5px;
+  grid-gap: 15px;
   width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 50px 10px;
   box-sizing: border-box;
 }
