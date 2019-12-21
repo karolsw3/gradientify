@@ -1,4 +1,4 @@
-(Imagine a nice logo there)
+<img src="logo.svg" height="60">
 
 # Gradientify
 

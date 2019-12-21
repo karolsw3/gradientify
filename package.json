@@ -1,6 +1,6 @@
 {
   "name": "gradientify",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create amazing, animated gradients with ease.",
   "main": "./dist/index.js",
   "scripts": {
