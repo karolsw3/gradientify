@@ -1,6 +1,6 @@
 (Imagine a nice logo there)
 
-#Gradientify
+# Gradientify
 
 Create beautiful, animated gradients with ease.
 
@@ -17,7 +17,7 @@ For wizards:
 
 For less-experienced wizards:
 
-``
+`<script src="https://gitcdn.xyz/repo/karolsw3/gradientify/master/dist/index.js">`
 
 ## Usage
 
