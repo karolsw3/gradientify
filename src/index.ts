@@ -4,7 +4,7 @@ export default class Gradientify {
   public fadeInterval: number // In miliseconds
 
   private gradientElements: HTMLElement[]
-  private interval: number // setInterval type
+  private interval: number // setInterval type (yes, it's a number. lol)
 
   constructor (
     target: HTMLElement | HTMLElement[],
@@ -19,6 +19,11 @@ export default class Gradientify {
     this.startAnimation()
   }
 
+  /*
+    This guy beneath is responsible for creating
+    divs with gradient backgrounds, which are going
+    to be appended to the target element(s)
+  */
   private createGradientElements () {
     this.gradientElements = this.gradients.map((gradient, index) => {
       let element = document.createElement('div')
@@ -37,6 +42,7 @@ export default class Gradientify {
     })
   }
 
+  // Time to append our gradients! 🧚‍♀️
   private appendGradients () {
     if (this.target instanceof Array) {
       // Multiple targets
@@ -60,6 +66,12 @@ export default class Gradientify {
     }
   }
 
+  /*
+    Here lies the whole magic of this library:
+    Every X seconds we set the opacity of the next
+    gradient element to 1, and CSS transition does the rest. Yay!
+    *uncomfortably complex computations grinning in the background*
+  */
   public startAnimation () {
     this.interval = setInterval(() => {
       for (let [index, element] of this.gradientElements.entries()) {
@@ -73,6 +85,7 @@ export default class Gradientify {
     }, this.fadeInterval)
   }
 
+  // Fairly straightforward
   public stopAnimation () {
     clearInterval(this.interval)
   }
