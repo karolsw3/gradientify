@@ -22,7 +22,7 @@ export default class Gradientify {
   /*
     This guy beneath is responsible for creating
     divs with gradient backgrounds, which are going
-    to be appended to the target element(s)
+    to be appended to the target element(s) 👩🏻‍🔬
   */
   private createGradientElements () {
     this.gradientElements = this.gradients.map((gradient, index) => {
@@ -69,7 +69,7 @@ export default class Gradientify {
   /*
     Here lies the whole magic of this library:
     Every X seconds we set the opacity of the next
-    gradient element to 1, and CSS transition does the rest. Yay!
+    gradient element to 1, and a CSS transition does the rest. Yay!
     *uncomfortably complex computations grinning in the background*
   */
   public startAnimation () {
