@@ -25,9 +25,7 @@
     "url": "https://github.com/karolsw3/gradientify.js/issues"
   },
   "homepage": "https://github.com/karolsw3/gradientify.js#readme",
-  "dependencies": {
-    "cross-env": "^6.0.3"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/cli": "^7.7.7",
     "@babel/core": "^7.7.7",
