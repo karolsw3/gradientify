@@ -2,9 +2,9 @@
   "name": "gradientify",
   "version": "1.0.0",
   "description": "Create amazing, animated gradients with ease.",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src --out-dir dist --extensions '.ts'"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,16 @@
   "bugs": {
     "url": "https://github.com/karolsw3/gradientify.js/issues"
   },
-  "homepage": "https://github.com/karolsw3/gradientify.js#readme"
+  "homepage": "https://github.com/karolsw3/gradientify.js#readme",
+  "dependencies": {
+    "cross-env": "^6.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-transform-typescript": "^7.7.4",
+    "@babel/preset-env": "^7.7.7",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
+  }
 }

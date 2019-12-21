@@ -1,0 +1,1 @@
+{"version":3,"sources":["../src/index.js"],"names":["Gradientify","constructor","x"],"mappings":"AAAA,eAAe,MAAMA,WAAN,CAAkB;AAC/BC,gBAAe;AACb,SAAKC,CAAL,GAAS,CAAT;AACD;AAH8B","file":"index.js","sourcesContent":["export default class Gradientify {\n  constructor () {\n    this.x = 1\n  }\n}\n"]}
