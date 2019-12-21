@@ -15,9 +15,8 @@ For wizards:
 `npm i gradientify`
 
 
-For less-experienced wizards:
-
-`<script src="https://gitcdn.xyz/repo/karolsw3/gradientify/master/dist/index.js">`
+For less-experienced wizards: 
+(link to a CDN coming soon)
 
 ## Usage
 
