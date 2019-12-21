@@ -41,6 +41,9 @@ export default class Gradientify {
     if (this.target instanceof Array) {
       // Multiple targets
       this.target.forEach(target => {
+        if (target.style.position !== 'absolute') {
+          target.style.position = 'relative'
+        }
         this.gradientElements.forEach(element => {
           target.appendChild(element)
         })
@@ -48,6 +51,9 @@ export default class Gradientify {
     } else {
       // One target
       let target = this.target as HTMLElement
+      if (target.style.position !== 'absolute') {
+        target.style.position = 'relative'
+      }
       this.gradientElements.forEach(element => {
         target.appendChild(element)
       })
@@ -56,13 +62,14 @@ export default class Gradientify {
 
   public startAnimation () {
     this.interval = setInterval(() => {
-      this.gradientElements.forEach((element, index) => {
+      for (let [index, element] of this.gradientElements.entries()) {
         if (element.style.opacity === '1') {
           element.style.opacity = '0'
           let nextElement = this.gradientElements[++index % this.gradientElements.length]
           nextElement.style.opacity = '1'
+          break
         }
-      })
+      }
     }, this.fadeInterval)
   }
 
