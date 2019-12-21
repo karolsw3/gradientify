@@ -1,45 +1,37 @@
 {
-  "name": "gradientify.js",
-  "version": "1.0.0",
-  "description": "Simple javascript library for creating beautyful gradient backgrounds.",
-  "main": "src/gradientify.js",
+  "name": "gradientify",
+  "version": "1.0.1",
+  "description": "Create amazing, animated gradients with ease.",
+  "main": "./dist/index.js",
   "scripts": {
-    "build": "gulp"
+    "build": "babel src --out-dir dist --extensions .ts,.tsx"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/karolsw2/gradientify.js.git"
+    "url": "git+https://github.com/karolsw3/gradientify.js.git"
   },
   "keywords": [
     "gradientify",
+    "gradient",
+    "gradients",
     "animated",
     "gradients",
-    "js"
+    "animated",
+    "animation"
   ],
-  "author": "Karol Świerczek",
-  "license": "MIT",
+  "author": "Charles Spruce",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/karolsw2/gradientify.js/issues"
+    "url": "https://github.com/karolsw3/gradientify.js/issues"
   },
-  "homepage": "https://github.com/karolsw2/gradientify.js#readme",
-  "dependencies": {
-    "babel": "^6.23.0",
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "gulp-babel": "^7.0.1",
-    "gulp-cli": "^2.0.1",
-    "gulp-pug": "^3.3.0",
-    "gulp-stylus": "^2.7.0",
-    "gulp-uglify": "^3.0.0",
-    "gulp-uglify-es": "^1.0.1",
-    "pug": "^2.0.0-rc.4",
-    "pump": "^3.0.0",
-    "standard": "^11.0.0",
-    "stylus": "^0.54.5",
-    "uglify-es": "^3.3.9"
-  },
+  "homepage": "https://github.com/karolsw3/gradientify.js#readme",
+  "dependencies": {},
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-debug": "^3.2.0"
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/preset-typescript": "^7.7.7",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
   }
 }
