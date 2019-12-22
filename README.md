@@ -9,12 +9,13 @@ See it in action: (link to a demo will soon be there)
 ## Installation
 
 For wizards:
-
 `npm i gradientify`
 
 
 For less-experienced wizards:
-(link to a CDN coming soon)
+```javascript
+  <script src="https://gitcdn.link/cdn/karolsw3/gradientify/e921b5a569d07207ed8a41a79ed3adc547f2ff48/dist/gradientify.min.js"></script>
+```
 
 ## Usage
 
