@@ -18,7 +18,7 @@ For less-experienced wizards:
 
 ## Usage
 
-```javscript
+```javascript
 let gradientify = new Gradientify(
   '.yourClass',
   [
