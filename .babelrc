@@ -20,7 +20,15 @@
       "plugins": [
         "transform-object-rest-spread",
         "transform-class-properties",
-        "transform-es2015-modules-commonjs"
+        [
+          "remove-import-export",
+          {
+            "removeImport": true,
+            "removeExport": true,
+            "removeExportDefault": false,
+            "preseveNamedDeclaration": true
+          }
+        ]
       ]
     }
   }
