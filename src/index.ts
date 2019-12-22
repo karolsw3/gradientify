@@ -1,13 +1,13 @@
 export default class Gradientify {
-  public target: HTMLElement | HTMLElement[]
+  public target: string
   public gradients: string[]
   public fadeInterval: number // In miliseconds
 
-  private gradientElements: HTMLElement[]
-  private interval: number // setInterval type (yes, it's a number. lol)
+  private gradientElements!: HTMLElement[][]
+  private interval!: number // setInterval type (yes, it's a number. lol)
 
   constructor (
-    target: HTMLElement | HTMLElement[],
+    target: string,
     gradients: string[],
     fadeInterval: number
   ) {
@@ -25,45 +25,41 @@ export default class Gradientify {
     to be appended to the target element(s) 👩🏻‍🔬
   */
   private createGradientElements () {
-    this.gradientElements = this.gradients.map((gradient, index) => {
-      let element = document.createElement('div')
-      Object.assign(element.style, {
-        position: 'absolute',
-        height: '100%',
-        width: '100%',
-        opacity: index === 0 ? 1:0,
-        top: 0,
-        left: 0,
-        transitionTimingFunction: 'linear',
-        backgroundImage: gradient,
-        transitionDuration: `${this.fadeInterval / 1000}s`,
+    let targetElements = Array.from(document.querySelectorAll(this.target))
+    this.gradientElements = targetElements.map(() => {
+      return this.gradients.map((gradient, index) => {
+        let gradientElement = document.createElement('div')
+        Object.assign(gradientElement.style, {
+          position: 'absolute',
+          height: '100%',
+          width: '100%',
+          opacity: index === 0 ? 1:0,
+          top: 0,
+          left: 0,
+          transitionTimingFunction: 'linear',
+          backgroundImage: gradient,
+          transitionDuration: `${this.fadeInterval / 1000}s`,
+        })
+        return gradientElement
       })
-      return element
     })
   }
 
   // Time to append our gradients! 🧚‍♀️
   private appendGradients () {
-    if (this.target instanceof Array) {
-      // Multiple targets
-      this.target.forEach(target => {
-        if (target.style.position !== 'absolute') {
-          target.style.position = 'relative'
+    let targetElements = document.querySelectorAll(this.target)
+    targetElements.forEach((targetElement, targetIndex) => {
+      if (targetElement instanceof HTMLElement) {
+        if (targetElement.style.position !== 'absolute') {
+          targetElement.style.position = 'relative'
         }
-        this.gradientElements.forEach(element => {
-          target.appendChild(element)
+        this.gradientElements[targetIndex].forEach(element => {
+          targetElement.appendChild(element)
         })
-      })
-    } else {
-      // One target
-      let target = this.target as HTMLElement
-      if (target.style.position !== 'absolute') {
-        target.style.position = 'relative'
+      } else {
+        throw new Error(`Element ${this.target} doesn't exists!`)
       }
-      this.gradientElements.forEach(element => {
-        target.appendChild(element)
-      })
-    }
+    })
   }
 
   /*
@@ -74,12 +70,14 @@ export default class Gradientify {
   */
   public startAnimation () {
     this.interval = setInterval(() => {
-      for (let [index, element] of this.gradientElements.entries()) {
-        if (element.style.opacity === '1') {
-          element.style.opacity = '0'
-          let nextElement = this.gradientElements[++index % this.gradientElements.length]
-          nextElement.style.opacity = '1'
-          break
+      for (let [targetIndex, gradientElements] of this.gradientElements.entries()) {
+        for (let [index, element] of gradientElements.entries()) {
+          if (element.style.opacity === '1') {
+            element.style.opacity = '0'
+            let nextElement = this.gradientElements[targetIndex][++index % this.gradientElements.length]
+            nextElement.style.opacity = '1'
+            break
+          }
         }
       }
     }, this.fadeInterval)
