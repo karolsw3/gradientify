@@ -2,7 +2,7 @@
 
 Create beautiful, animated gradients with ease.
 
-Ever wanted to animate a gradient background, but CSS transitions dissapointed you with its unfunnily lack of this in-extremely-high-demand functionality? Worry no more!
+Ever wanted to animate a gradient background, but CSS transitions disappointed you with its unfunnily lack of this in-extremely-high-demand functionality? Worry no more!
 
 See it in action: (link to a demo will soon be there)
 
