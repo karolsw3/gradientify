@@ -4,7 +4,9 @@
   "description": "Create amazing, animated gradients with ease.",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "babel src --out-dir dist --extensions .ts,.tsx"
+    "commonjs": "BABEL_ENV=commonjs babel src --out-file dist/gradientify.min.js --extensions .ts,.tsx",
+    "module": "BABEL_ENV=module babel src --out-dir dist --extensions .ts,.tsx",
+    "build": "npm run module && npm run commonjs"
   },
   "repository": {
     "type": "git",
@@ -32,6 +34,8 @@
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-typescript": "^7.7.7",
     "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0"
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-minify": "^0.5.1"
   }
 }

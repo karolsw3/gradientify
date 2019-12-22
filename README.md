@@ -6,7 +6,7 @@ Ever wanted to animate a gradient background, but CSS transitions dissapointed y
 
 See it in action: (link to a demo will soon be there)
 
-## Installing
+## Installation
 
 For wizards:
 

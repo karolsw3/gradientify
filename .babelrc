@@ -1,10 +1,27 @@
 {
-  "presets": [
-    "@babel/preset-typescript",
-    "@babel/preset-env"
-  ],
-  "plugins": [
-    "transform-object-rest-spread",
-    "transform-class-properties"
-  ]
+  "env": {
+    "module": {
+      "presets": [
+        "@babel/preset-typescript",
+        "@babel/preset-env"
+      ],
+      "plugins": [
+        "transform-object-rest-spread",
+        "transform-class-properties",
+        "@babel/plugin-transform-modules-commonjs"
+      ]
+    },
+    "commonjs": {
+      "presets": [
+        "@babel/preset-typescript",
+        "@babel/preset-env",
+        "minify"
+      ],
+      "plugins": [
+        "transform-object-rest-spread",
+        "transform-class-properties",
+        "transform-es2015-modules-commonjs"
+      ]
+    }
+  }
 }
