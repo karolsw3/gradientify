@@ -1,6 +1,4 @@
-<img src="logo.svg" height="60">
-
-# Gradientify
+<img src="logo.png" height="33">
 
 Create beautiful, animated gradients with ease.
 
