@@ -13,8 +13,8 @@ For wizards:
 
 
 For less-experienced wizards:
-```javascript
-  <script src="https://gitcdn.link/cdn/karolsw3/gradientify/e921b5a569d07207ed8a41a79ed3adc547f2ff48/dist/gradientify.min.js"></script>
+```html
+<script src="https://gitcdn.link/cdn/karolsw3/gradientify/e921b5a569d07207ed8a41a79ed3adc547f2ff48/dist/gradientify.min.js"></script>
 ```
 
 ## Usage
