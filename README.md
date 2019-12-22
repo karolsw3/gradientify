@@ -13,7 +13,7 @@ For wizards:
 `npm i gradientify`
 
 
-For less-experienced wizards: 
+For less-experienced wizards:
 (link to a CDN coming soon)
 
 ## Usage

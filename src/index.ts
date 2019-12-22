@@ -71,10 +71,10 @@ export default class Gradientify {
   public startAnimation () {
     this.interval = setInterval(() => {
       for (let [targetIndex, gradientElements] of this.gradientElements.entries()) {
-        for (let [index, element] of gradientElements.entries()) {
+        for (let [elementIndex, element] of gradientElements.entries()) {
           if (element.style.opacity === '1') {
             element.style.opacity = '0'
-            let nextElement = this.gradientElements[targetIndex][++index % this.gradientElements.length]
+            let nextElement = this.gradientElements[targetIndex][++elementIndex % this.gradientElements[targetIndex].length]
             nextElement.style.opacity = '1'
             break
           }

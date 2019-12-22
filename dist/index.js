@@ -116,12 +116,12 @@ function () {
             try {
               for (var _iterator2 = gradientElements.entries()[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
                 var _step2$value = _slicedToArray(_step2.value, 2),
-                    index = _step2$value[0],
+                    elementIndex = _step2$value[0],
                     element = _step2$value[1];
 
                 if (element.style.opacity === '1') {
                   element.style.opacity = '0';
-                  var nextElement = _this3.gradientElements[targetIndex][++index % _this3.gradientElements.length];
+                  var nextElement = _this3.gradientElements[targetIndex][++elementIndex % _this3.gradientElements[targetIndex].length];
                   nextElement.style.opacity = '1';
                   break;
                 }
