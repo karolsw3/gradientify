@@ -16,7 +16,7 @@ npm i gradientify
 
 For less-experienced wizards:
 ```html
-<script src="https://gitcdn.link/cdn/karolsw3/gradientify/e921b5a569d07207ed8a41a79ed3adc547f2ff48/dist/gradientify.min.js"></script>
+<script src="https://rawcdn.githack.com/karolsw3/gradientify/7f5a74cd8380a843477b7abfa9baca2fd127013a/dist/gradientify.min.js"></script>
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ let gradientify = new Gradientify(
     "linear-gradient(10deg, rgb(25, 123, 23), #ff22af)",
     "radial-gradient(rgb(25, 123, 223), red)"
   ],
-  3000 // Interval in miliseconds
+  3000 // Fading interval in miliseconds
 )
 ```
 
