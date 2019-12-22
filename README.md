@@ -9,7 +9,9 @@ See it in action: (link to a demo will soon be there)
 ## Installation
 
 For wizards:
-`npm i gradientify`
+```
+npm i gradientify
+```
 
 
 For less-experienced wizards:
@@ -27,7 +29,7 @@ let gradientify = new Gradientify(
     "linear-gradient(10deg, rgb(25, 123, 23), #ff22af)",
     "radial-gradient(rgb(25, 123, 223), red)"
   ],
-  5000 // Interval in miliseconds
+  3000 // Interval in miliseconds
 )
 ```
 
