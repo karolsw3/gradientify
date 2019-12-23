@@ -22,7 +22,7 @@
     "animation"
   ],
   "author": "Charles Spruce",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/karolsw3/gradientify.js/issues"
   },
