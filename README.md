@@ -4,7 +4,6 @@ Create beautiful, animated gradients with ease.
 
 Ever wanted to animate a gradient background, but CSS transitions disappointed you with its unfunnily lack of this in-extremely-high-demand functionality? Worry no more!
 
-<img src="demo.png" height="180">
 <b style="font-size: 17px">
 <a href="https://codepen.io/karolsw3/pen/povPevb">DEMO</a>
 </b>
@@ -35,5 +34,7 @@ let gradientify = new Gradientify(
   3000 // Fading interval in miliseconds
 )
 ```
+
+<img src="demo.png" height="180">
 
 
