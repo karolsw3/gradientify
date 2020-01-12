@@ -1,4 +1,4 @@
-<img src="logo.png" height="60">
+<img src="logo.png" height="45">
 
 Create beautiful, animated gradients with ease.
 
@@ -34,7 +34,5 @@ let gradientify = new Gradientify(
   3000 // Fading interval in miliseconds
 )
 ```
-
-<img src="demo.png" height="180">
 
 
