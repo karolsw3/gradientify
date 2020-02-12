@@ -2,7 +2,7 @@
 
 Create beautiful, animated gradients with ease.
 
-Ever wanted to animate a gradient background, but CSS transitions disappointed you with its unfunnily lack of this in-extremely-high-demand functionality? Worry no more!
+Ever wanted to animate a gradient background, but CSS transitions disappointed you with their lack of this in-extremely-high-demand functionality? Worry no more!
 
 <b style="font-size: 17px">
 <a href="https://codepen.io/karolsw3/pen/povPevb">DEMO</a>
